@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image"
 import { motion } from "framer-motion";
 import FlipCard from "../cards/flipcard";
 import "slick-carousel/slick/slick.css"
