@@ -44,33 +44,33 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Profile", href: "/" },
-    { name: "Business Line", href: "/"},
-    { name: "Gallery", href: "/" },
-    { name: "News", href: "/" },
-    { name: "Contact", href: "/" },
-  ]
-
-  const profileSubmenu = [
-    { name: "Profil Perusahaan", href: "/" },
-    { name: "Profil Direksi", href: "/" },
-  ]
-
-  //   const navLinks = [
+  // const navLinks = [
   //   { name: "Home", href: "/" },
-  //   { name: "Profile", href: "/profile" },
-  //   { name: "Business Line", href: "/business"},
-  //   { name: "Gallery", href: "/gallery" },
-  //   { name: "News", href: "/news" },
-  //   { name: "Contact", href: "/contact" },
+  //   { name: "Profile", href: "/" },
+  //   { name: "Business Line", href: "/"},
+  //   { name: "Gallery", href: "/" },
+  //   { name: "News", href: "/" },
+  //   { name: "Contact", href: "/" },
   // ]
 
   // const profileSubmenu = [
-  //   { name: "Profil Perusahaan", href: "/profile" },
-  //   { name: "Profil Direksi", href: "/direksi" },
+  //   { name: "Profil Perusahaan", href: "/" },
+  //   { name: "Profil Direksi", href: "/" },
   // ]
+
+    const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Profile", href: "/profile" },
+    { name: "Business Line", href: "/business"},
+    { name: "Gallery", href: "/gallery" },
+    { name: "News", href: "/news" },
+    { name: "Contact", href: "/contact" },
+  ]
+
+  const profileSubmenu = [
+    { name: "Profil Perusahaan", href: "/profile" },
+    { name: "Profil Direksi", href: "/direksi" },
+  ]
 
   return (
     <motion.header
