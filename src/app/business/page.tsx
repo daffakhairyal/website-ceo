@@ -4,6 +4,7 @@ import Footer from "@/component/footer/footer"
 
 
 const Business1 = lazy(() => import("@/component/business1/business1"))
+const ConstructionPage = lazy(() => import("@/component/construction/construction"))
 export default function Business(){
 
   return (
@@ -13,7 +14,7 @@ export default function Business(){
 
     {/*Section3*/}
     <Suspense fallback={<div>Loading...</div>}>
-      <Business1/>
+      <ConstructionPage/>
     </Suspense>
     <Footer/>
     </main>

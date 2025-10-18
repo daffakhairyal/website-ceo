@@ -4,6 +4,7 @@ import Footer from "@/component/footer/footer"
 
 
 const Direksi = lazy(() => import("@/component/direksi/direksi"))
+const ConstructionPage = lazy(() => import("@/component/construction/construction"))
 export default function DireksiPage() {
 
   return (
@@ -11,7 +12,7 @@ export default function DireksiPage() {
       <Navbar />
 {/*Section 2*/}
     <Suspense fallback={<div>Loading...</div>}>
-      <Direksi />
+      <ConstructionPage />
     </Suspense>
     <Footer/>
     </main>

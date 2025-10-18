@@ -4,6 +4,8 @@ import Footer from "@/component/footer/footer"
 
 
 const NewsId = lazy(() => import("@/component/newsid/newsid"))
+const ConstructionPage = lazy(() => import("@/component/construction/construction"))
+
 export default function NewsIdSection() {
 
   return (
@@ -11,7 +13,7 @@ export default function NewsIdSection() {
       <Navbar />
 {/*Section 1*/}
     <Suspense fallback={<div>Loading...</div>}>
-      <NewsId />
+      <ConstructionPage />
     </Suspense>
     <Footer/>
     </main>
