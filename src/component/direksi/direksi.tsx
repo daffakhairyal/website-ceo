@@ -5,54 +5,26 @@ import { Mail, Linkedin } from "lucide-react";
 
 const directors = [
   {
-    name: "Rudi Santoso",
+    name: "Indra Fithani AR",
     position: "Direktur Utama",
     image: "/img/direksi1.jpg",
-    email: "rudi.santoso@perusahaanemas.co.id",
+    email: "indrafithaniar@centraenergioptima.com",
     linkedin: "#",
   },
   {
-    name: "Dewi Lestari",
+    name: "Yerisvo Hendra",
     position: "Direktur Keuangan",
     image: "/img/direksi2.jpg",
-    email: "dewi.lestari@perusahaanemas.co.id",
+    email: "yerisvohendra@centraenergioptima.com",
     linkedin: "#",
   },
   {
-    name: "Budi Hartono",
+    name: "Rithoudin Himawan",
     position: "Direktur Operasional",
     image: "/img/direksi3.jpg",
-    email: "budi.hartono@perusahaanemas.co.id",
+    email: "indrafithaniar@centraenergioptima.com",
     linkedin: "#",
-  },
-  {
-    name: "Sinta Maharani",
-    position: "Direktur Pemasaran",
-    image: "/img/direksi4.jpg",
-    email: "sinta.maharani@perusahaanemas.co.id",
-    linkedin: "#",
-  },
-  {
-    name: "Andi Pratama",
-    position: "Direktur Produksi",
-    image: "/img/direksi5.jpg",
-    email: "andi.pratama@perusahaanemas.co.id",
-    linkedin: "#",
-  },
-  {
-    name: "Nina Kusuma",
-    position: "Direktur SDM",
-    image: "/img/direksi6.jpg",
-    email: "nina.kusuma@perusahaanemas.co.id",
-    linkedin: "#",
-  },
-  {
-    name: "Hendra Wijaya",
-    position: "Direktur Teknologi",
-    image: "/img/direksi7.jpg",
-    email: "hendra.wijaya@perusahaanemas.co.id",
-    linkedin: "#",
-  },
+  }
 ];
 
 export default function Direksi() {
