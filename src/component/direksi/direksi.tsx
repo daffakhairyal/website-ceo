@@ -2,19 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Mail, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 const directors = [
   {
     name: "Indra Fithani AR",
     position: "Direktur Utama",
-    image: "/img/direksi1.jpg",
+    image: "/images/dirut1.jpeg",
     email: "indrafithaniar@centraenergioptima.com",
     linkedin: "#",
   },
   {
     name: "Yerisvo Hendra",
     position: "Direktur Keuangan",
-    image: "/img/direksi2.jpg",
+    image: "/images/ditkeu.jpeg",
     email: "yerisvohendra@centraenergioptima.com",
     linkedin: "#",
   },
@@ -56,13 +57,16 @@ export default function Direksi() {
             whileHover={{ scale: 1.05 }}
             className="bg-white border border-gray-100 shadow-md rounded-2xl p-5 text-center hover:shadow-lg transition-shadow duration-300 w-full"
           >
-            <div className="relative">
-              <img
-                src={director.image}
-                alt={director.name}
-                className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-yellow-500"
-              />
-            </div>
+<div className="relative w-32 h-32 mx-auto">
+  <Image
+    src={director.image}
+    alt={director.name}
+    fill
+    priority
+    className="rounded-full object-cover border-4 border-yellow-500"
+  />
+</div>
+
             <h3 className="mt-4 text-lg font-semibold text-gray-900">
               {director.name}
             </h3>

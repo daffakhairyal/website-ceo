@@ -1,78 +1,92 @@
 export const updates = [
   {
     id: 1,
-    title: "25 Peserta Lulus Pelatihan Alat Berat NPE Di PAMA Site BEKB",
-    category: "Edukasi",
-    date: "30 March 2024",
+    title: "Peningkatan Kapasitas Refinery Emas di Kuartal Ketiga 2025",
+    category: "Operasional",
+    date: "10 September 2025",
     description: `
-      <p>Para peserta berhasil menyelesaikan pelatihan alat berat dengan kompetensi standar industri.</p>
+      <p>Perusahaan berhasil meningkatkan kapasitas refinery hingga 30% berkat pembaruan teknologi pemurnian emas.</p>
       <ul>
-        <li>Materi mencakup <strong>operasi alat berat</strong> dan <em>keselamatan kerja</em></li>
-        <li>Simulasi praktik di lapangan</li>
-        <li>Siap diterjunkan di proyek nyata</li>
+        <li>Penerapan sistem <strong>electrorefining</strong> terbaru</li>
+        <li>Proses pemurnian lebih cepat dan efisien</li>
+        <li>Emisi limbah logam berat berhasil ditekan hingga 20%</li>
       </ul>
     `,
-    img: "https://picsum.photos/800/400?random=1"
+    img: "/images/6.jpeg"
   },
   {
     id: 2,
-    title: "Implementasi Program ESG, PAMA Bangun SPKLI di Head Office Jakarta",
-    category: "Pengelolaan Lingkungan",
-    date: "30 January 2024",
+    title: "Ekspansi Trading Emas ke Pasar Asia Tenggara",
+    category: "Perdagangan",
+    date: "25 Agustus 2025",
     description: `
-      <p>PAMA membangun Sistem Pengelolaan Kinerja Lingkungan dan Inovasi (SPKLI) untuk meningkatkan efisiensi dan kepatuhan lingkungan di kantor pusat.</p>
+      <p>Divisi trading resmi membuka jalur distribusi baru ke Malaysia dan Singapura untuk memperluas pangsa pasar emas batangan.</p>
       <ol>
-        <li>Monitoring energi dan limbah</li>
-        <li>Pelaporan berkala ESG</li>
-        <li>Integrasi teknologi ramah lingkungan</li>
+        <li>Kerja sama strategis dengan mitra regional</li>
+        <li>Standar kemurnian emas mengikuti regulasi internasional</li>
+        <li>Penguatan brand di sektor investasi emas</li>
       </ol>
     `,
-    img: "https://picsum.photos/800/400?random=2"
+    img: "/images/1.jpeg"
   },
   {
     id: 3,
-    title: "Berbagai Jenis Batu Bara dan Kualitasnya",
-    category: "Edukasi",
-    date: "04 March 2024",
+    title: "Pabrik Minting Emas Hadirkan Desain Batangan Edisi Khusus",
+    category: "Inovasi Produk",
+    date: "12 Juli 2025",
     description: `
-      <p>Artikel ini membahas klasifikasi batu bara berdasarkan kualitas, manfaatnya, serta aplikasi industri yang sesuai.</p>
+      <p>Pabrik minting memperkenalkan desain batangan emas edisi khusus bertema <em>Heritage Nusantara</em>.</p>
       <ul>
-        <li>Batu bara <strong>anthracite</strong> – kualitas tinggi, rendah sulfur</li>
-        <li>Batu bara <strong>bituminous</strong> – digunakan di pembangkit listrik</li>
-        <li>Batu bara <strong>lignite</strong> – kadar air tinggi, energi rendah</li>
+        <li>Motif terinspirasi dari budaya Indonesia</li>
+        <li>Kemurnian 99.99% (24 karat)</li>
+        <li>Dilengkapi sertifikat digital berbasis blockchain</li>
       </ul>
     `,
-    img: "https://picsum.photos/800/400?random=3"
+    img: "/images/2.jpeg"
   },
   {
     id: 4,
-    title: "Produksi Tambang Emas Meningkat di Kuartal Pertama",
-    category: "Operasional",
-    date: "15 April 2024",
+    title: "Tambang Baru di Sulawesi Mulai Beroperasi",
+    category: "Ekspansi Bisnis",
+    date: "02 Juni 2025",
     description: `
-      <p>Peningkatan produksi emas dicapai melalui optimalisasi proses penambangan dan peningkatan efisiensi operasional.</p>
+      <p>Tambang emas baru di Sulawesi resmi beroperasi dengan kapasitas produksi awal 50 kilogram per bulan.</p>
       <ul>
-        <li>Penerapan <strong>teknologi ekstraksi modern</strong></li>
-        <li>Pelatihan tim operasional</li>
-        <li>Monitoring produksi secara real-time</li>
+        <li>Penerapan <strong>green mining</strong> dengan limbah nol merkuri</li>
+        <li>Melibatkan tenaga kerja lokal hingga 70%</li>
+        <li>Kontribusi positif terhadap perekonomian daerah</li>
       </ul>
     `,
-    img: "https://picsum.photos/800/400?random=4"
+    img: "/images/3.jpeg"
   },
   {
     id: 5,
-    title: "PAMA Luncurkan Inovasi Teknologi Tambang Ramah Lingkungan",
-    category: "Inovasi",
-    date: "10 May 2024",
+    title: "Digitalisasi Sistem Supply Chain Emas",
+    category: "Teknologi",
+    date: "18 Mei 2025",
     description: `
-      <p>Inovasi terbaru PAMA menghadirkan teknologi penambangan yang lebih ramah lingkungan.</p>
+      <p>Implementasi sistem digital untuk melacak rantai pasok emas dari tambang hingga ke pembeli akhir.</p>
       <ul>
-        <li>Pengurangan emisi gas buang</li>
-        <li>Minimasi limbah tambang</li>
-        <li>Efisiensi energi tinggi</li>
+        <li>Transparansi dan keamanan data terjamin</li>
+        <li>Integrasi dengan platform logistik nasional</li>
+        <li>Mendukung praktik <em>responsible sourcing</em></li>
       </ul>
-      <p>Teknologi ini diharapkan dapat diterapkan di seluruh site PAMA.</p>
     `,
-    img: "https://picsum.photos/800/400?random=5"
+    img: "/images/4.jpeg"
+  },
+  {
+    id: 6,
+    title: "Pelatihan Keselamatan dan Efisiensi Energi untuk Karyawan Tambang",
+    category: "Edukasi",
+    date: "05 April 2025",
+    description: `
+      <p>Program pelatihan ini ditujukan untuk meningkatkan kesadaran terhadap keselamatan kerja dan efisiensi energi di lokasi tambang.</p>
+      <ul>
+        <li>Peningkatan kompetensi operator alat berat</li>
+        <li>Penerapan sistem <strong>zero accident</strong></li>
+        <li>Optimalisasi penggunaan bahan bakar dan listrik</li>
+      </ul>
+    `,
+    img: "/images/5.jpeg"
   },
 ];
