@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Menu, X } from "lucide-react"
 import {useRouter} from 'next/navigation'
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [searchClicked, setSearchClicked] = useState(false)
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
+  
   const isHome = pathname === "/"
   const navbarClass = isHome && !scrolled
     ? "absolute  bg-black/50"
@@ -76,7 +78,13 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
               className={`text-2xl px-4 font-bold text-blue-500 tracking-tight hover:text-blue-700 transition  
                 ${!scrolled && isHome ? "text-blue-500 hover:text-blue-600" : "hover:text-blue-700 before:text-blue-700"}`}
             >
-              CEO<span className="text-gray-700">.</span>
+                <Image
+    src="/images/logo.png"
+    alt="logo"
+    width={50} // atur sesuai kebutuhan
+    height={50}
+    className="inline-block"
+  />
             </a>
 
             <div className="flex space-x-1 relative">

@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 export default function Gallery() {
   const images = [
-    "https://picsum.photos/800/400?random=1",
-    "https://picsum.photos/800/400?random=2",
-    "https://picsum.photos/800/400?random=3",
-    "https://picsum.photos/800/400?random=4",
-    "https://picsum.photos/800/400?random=5",
-    "https://picsum.photos/800/400?random=6",
+    "/images/1.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
+    "/images/4.jpeg",
+    "/images/5.jpeg",
+    "/images/6.jpeg",
   ];
 
   const settings = {
