@@ -18,7 +18,7 @@ const directors = [
   {
     name: "H Faridian Faisal",
     position: "Komisaris",
-    image: "/images/komisaris2.jpeg",
+    image: "/images/komisaris1.jpeg",
     email: "faridian@centraenergioptima.com",
     description:
         "Sebagai anggota dewan komisaris, beliau berperan dalam memberikan arahan strategis dan pengawasan terhadap kinerja manajemen perusahaan.",

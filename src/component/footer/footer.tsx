@@ -12,10 +12,10 @@ export default function Footer() {
 
           {/* Tombol Download */}
           <a
-            href="/downloads/company-profile.pdf"
+            href="/documents/compro-ceo.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-yellow-500 hover:bg-yellow-400 text-[#0B1120] font-semibold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-yellow-300/30"
+            className="inline-block bg-yellow-500 hover:bg-yellow-400 text-[#0B1120] font-semibold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-yellow-300/30"          
           >
             Download Company Profile
           </a>
@@ -26,7 +26,8 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4">Profil</h3>
           <ul className="space-y-2">
             <li><a href="/profil/perusahaan" className="hover:text-yellow-400 transition-colors">Profil Perusahaan</a></li>
-            <li><a href="/profil/direksi" className="hover:text-yellow-400 transition-colors">Profil Direksi</a></li>
+            <li><a href="/direksi" className="hover:text-yellow-400 transition-colors">Profil Direksi</a></li>
+            <li><a href="/komisaris" className="hover:text-yellow-400 transition-colors">Profil Komisaris</a></li>
           </ul>
         </div>
 
