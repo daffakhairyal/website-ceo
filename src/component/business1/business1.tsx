@@ -22,12 +22,14 @@ export default function Business1(){
         <br />
         <br />
        <div className=" text-justify">
-        PT Centra Energy Optima is a company focused on the gold industry with two main business lines: gold refining 
-        and gold trading. In its refining operations, the company is committed to processing and purifying gold to high 
-        standards, producing quality products that meet both domestic and international market demands. Meanwhile, in its 
-        trading division, PT Centra Energy Optima actively engages in the buying and selling of gold, whether in bullion 
-        form or other derivative products, upholding transparency, trust, and professionalism as the foundation of all 
-        its business activities.
+PT Centra Energy Optima is a company engaged in the gold industry with integrated operations 
+covering mining, minting, refining, trading, and bullion banking. In its mining activities, the 
+company focuses on extracting gold resources responsibly to ensure sustainable production. Through 
+its minting and refining operations, PT Centra Energy Optima processes and purifies gold to international 
+standards, producing high-quality bullion and coin products. In the trading division, the company actively 
+participates in the domestic and international gold markets, ensuring transparency and integrity in every transaction. 
+Furthermore, through its bullion banking services, PT Centra Energy Optima provides gold storage, financing, 
+and liquidity solutions, strengthening its position as a trusted and comprehensive player in the gold industry.
         </div>   
 <br />
 <br />

@@ -25,7 +25,7 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4">Profil</h3>
           <ul className="space-y-2">
-            <li><a href="/profil/perusahaan" className="hover:text-yellow-400 transition-colors">Profil Perusahaan</a></li>
+            <li><a href="/profile" className="hover:text-yellow-400 transition-colors">Profil Perusahaan</a></li>
             <li><a href="/direksi" className="hover:text-yellow-400 transition-colors">Profil Direksi</a></li>
             <li><a href="/komisaris" className="hover:text-yellow-400 transition-colors">Profil Komisaris</a></li>
           </ul>
@@ -35,8 +35,11 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4">Business Line</h3>
           <ul className="space-y-2">
-            <li><a href="/business/refinery" className="hover:text-yellow-400 transition-colors">Refinery</a></li>
-            <li><a href="/business/trading" className="hover:text-yellow-400 transition-colors">Trading</a></li>
+            <li><a href="/business/" className="hover:text-yellow-400 transition-colors">Refinery</a></li>
+            <li><a href="/business/" className="hover:text-yellow-400 transition-colors">Trading</a></li>
+                        <li><a href="/business/" className="hover:text-yellow-400 transition-colors">Mining</a></li>
+                                    <li><a href="/business/" className="hover:text-yellow-400 transition-colors">Minting</a></li>
+                                                <li><a href="/business/" className="hover:text-yellow-400 transition-colors">Bullion Bank</a></li>
           </ul>
         </div>
 
