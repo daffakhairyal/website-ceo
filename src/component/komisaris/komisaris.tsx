@@ -118,7 +118,7 @@ export default function Komisaris() {
             <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
               <div className="mb-2">
                 <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
-                  Direksi
+                  Komisaris
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">
