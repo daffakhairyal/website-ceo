@@ -14,19 +14,19 @@ const contacts = [
     id: 2,
     name: "Website",
     icon: <Globe className="w-7 h-7" />,
-    link: "https://website.com",
+    link: "https://centraenergioptima.com",
   },
   {
     id: 3,
     name: "Email",
     icon: <Mail className="w-7 h-7" />,
-    link: "mailto:email@domain.com",
+    link: "info@cetraenergioptima.com",
   },
   {
     id: 4,
     name: "Telepon",
     icon: <Phone className="w-7 h-7" />,
-    link: "tel:+6281234567890",
+    link: "wa.me/6287874065078",
   },
 ];
 
