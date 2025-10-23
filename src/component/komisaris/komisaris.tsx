@@ -7,35 +7,35 @@ import { Mail, Linkedin } from "lucide-react";
 
 const directors = [
   {
-    name: "Indra Fithani AR",
-    position: "Direktur Utama",
-    image: "/images/dirut1.jpeg",
+    name: "Yan Felix Auparai",
+    position: "Komisaris Utama",
+    image: "/images/komut.jpeg",
+    email: "suryonugroho@centraenergioptima.com",
     description:
-      "Sebagai Direktur Utama, beliau memimpin arah strategis perusahaan dengan fokus pada inovasi, efisiensi, dan tata kelola yang berintegritas tinggi.",
-    email: "indrafithaniar@centraenergioptima.com",
+        "Sebagai Komisaris Utama, beliau bertanggung jawab untuk mengawasi jalannya perusahaan dan memastikan kepatuhan terhadap regulasi serta tata kelola yang baik.",
     linkedin: "#",
   },
   {
-    name: "Yerisvo Hendra",
-    position: "Direktur Keuangan",
-    image: "/images/ditkeu.jpeg",
+    name: "H Faridian Faisal",
+    position: "Komisaris",
+    image: "/images/komisaris2.jpeg",
+    email: "faridian@centraenergioptima.com",
     description:
-      "Mengelola dan mengawasi seluruh aspek keuangan perusahaan, memastikan transparansi, efisiensi, dan keberlanjutan finansial.",
-    email: "yerisvohendra@centraenergioptima.com",
+        "Sebagai anggota dewan komisaris, beliau berperan dalam memberikan arahan strategis dan pengawasan terhadap kinerja manajemen perusahaan.",
     linkedin: "#",
   },
   {
-    name: "Rithoudin Himawan",
-    position: "Direktur Operasional",
-    image: "/images/direksi3.jpeg",
+    name: "Ismet Jaya Suganda",
+    position: "Komisaris",
+    image: "/images/komisaris2.jpeg",
+    email: "ismet@centraenergioptima.com",
     description:
-      "Bertanggung jawab atas pelaksanaan operasional dan peningkatan efisiensi dalam seluruh proses bisnis perusahaan.",
-    email: "rithoudinhimawan@centraenergioptima.com",
+        "Sebagai anggota dewan komisaris, beliau berperan dalam memberikan arahan strategis dan pengawasan terhadap kinerja manajemen perusahaan.",
     linkedin: "#",
   },
 ];
 
-export default function Direksi() {
+export default function Komisaris() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentDirector = directors[currentIndex];
 
@@ -59,7 +59,7 @@ export default function Direksi() {
         className="text-center mb-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wide">
-          Board of Directors
+          Board of Commissioners
         </h2>
         <div className="w-24 h-1 bg-gray-900 mx-auto mt-3 rounded-full"></div>
         <p className="text-gray-800 mt-4 max-w-2xl mx-auto text-sm md:text-base">
