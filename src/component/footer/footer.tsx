@@ -12,7 +12,7 @@ export default function Footer() {
 
           {/* Tombol Download */}
           <a
-            href="/documents/compro-ceo.pdf"
+            href="/documents/ceo-compro.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-yellow-500 hover:bg-yellow-400 text-[#0B1120] font-semibold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-yellow-300/30"          

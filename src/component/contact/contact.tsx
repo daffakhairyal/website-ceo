@@ -20,7 +20,7 @@ const contacts = [
     id: 3,
     name: "Email",
     icon: <Mail className="w-7 h-7" />,
-    link: "info@cetraenergioptima.com",
+    link: "info@centraenergioptima.com",
   },
   {
     id: 4,
