@@ -12,7 +12,7 @@ export default function Footer() {
 
           {/* Tombol Download */}
           <a
-            href="/documents/ceo-compro.pdf"
+            href="/images/ceo-compro.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-[#0B1120] font-semibold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-yellow-300/30"          
@@ -23,11 +23,11 @@ export default function Footer() {
 
         {/* Kolom 2 - Profil */}
         <div>
-          <h3 className="text-white font-semibold mb-4">Profil</h3>
+          <h3 className="text-white font-semibold mb-4">Profile</h3>
           <ul className="space-y-2">
-            <li><a href="/profile" className="hover:text-yellow-400 transition-colors">Profil Perusahaan</a></li>
-            <li><a href="/direksi" className="hover:text-yellow-400 transition-colors">Profil Direksi</a></li>
-            <li><a href="/komisaris" className="hover:text-yellow-400 transition-colors">Profil Komisaris</a></li>
+            <li><a href="/profile" className="hover:text-yellow-400 transition-colors">Company Profile</a></li>
+            <li><a href="/direksi" className="hover:text-yellow-400 transition-colors">Directors Profile</a></li>
+            <li><a href="/komisaris" className="hover:text-yellow-400 transition-colors">Commisioner Profile</a></li>
           </ul>
         </div>
 
@@ -45,11 +45,11 @@ export default function Footer() {
 
         {/* Kolom 4 - Lainnya */}
         <div>
-          <h3 className="text-white font-semibold mb-4">Lainnya</h3>
+          <h3 className="text-white font-semibold mb-4">Others</h3>
           <ul className="space-y-2">
-            <li><a href="/galeri" className="hover:text-yellow-400 transition-colors">Galeri</a></li>
+            <li><a href="/gallery" className="hover:text-yellow-400 transition-colors">Gallery</a></li>
             <li><a href="/news" className="hover:text-yellow-400 transition-colors">News</a></li>
-            <li><a href="/kontak" className="hover:text-yellow-400 transition-colors">Kontak</a></li>
+            <li><a href="/contact" className="hover:text-yellow-400 transition-colors">Contact</a></li>
           </ul>
         </div>
 

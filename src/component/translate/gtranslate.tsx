@@ -6,13 +6,13 @@ export default function GTranslate() {
   useEffect(() => {
     // set konfigurasi
     (window as any).gtranslateSettings = {
-      default_language: "id",
+      default_language: "en",
       native_language_names: true,
       detect_browser_language: true,
       languages: ["id", "fr", "it", "es", "en"],
       wrapper_selector: ".gtranslate_wrapper",
       switcher_horizontal_position: "right",
-      switcher_vertical_position: "top",
+      switcher_vertical_position: "bottom",
       float_switcher_open_direction: "right",
     };
 
