@@ -104,4 +104,49 @@ export const updates = [
     `,
     img: "/images/6.jpeg"
   },
+    {
+    id: 8,
+    title: "Peningkatan Kapasitas Refinery Emas di Kuartal Ketiga 2025",
+    category: "Operasional",
+    date: "10 September 2025",
+    description: `
+      <p>Perusahaan berhasil meningkatkan kapasitas refinery hingga 30% berkat pembaruan teknologi pemurnian emas.</p>
+      <ul>
+        <li>Penerapan sistem <strong>electrorefining</strong> terbaru</li>
+        <li>Proses pemurnian lebih cepat dan efisien</li>
+        <li>Emisi limbah logam berat berhasil ditekan hingga 20%</li>
+      </ul>
+    `,
+    img: "/images/6.jpeg"
+  },
+    {
+    id: 9,
+    title: "Peningkatan Kapasitas Refinery Emas di Kuartal Ketiga 2025",
+    category: "Operasional",
+    date: "10 September 2025",
+    description: `
+      <p>Perusahaan berhasil meningkatkan kapasitas refinery hingga 30% berkat pembaruan teknologi pemurnian emas.</p>
+      <ul>
+        <li>Penerapan sistem <strong>electrorefining</strong> terbaru</li>
+        <li>Proses pemurnian lebih cepat dan efisien</li>
+        <li>Emisi limbah logam berat berhasil ditekan hingga 20%</li>
+      </ul>
+    `,
+    img: "/images/6.jpeg"
+  },
+    {
+    id: 10,
+    title: "Peningkatan Kapasitas Refinery Emas di Kuartal Ketiga 2025",
+    category: "Operasional",
+    date: "10 September 2025",
+    description: `
+      <p>Perusahaan berhasil meningkatkan kapasitas refinery hingga 30% berkat pembaruan teknologi pemurnian emas.</p>
+      <ul>
+        <li>Penerapan sistem <strong>electrorefining</strong> terbaru</li>
+        <li>Proses pemurnian lebih cepat dan efisien</li>
+        <li>Emisi limbah logam berat berhasil ditekan hingga 20%</li>
+      </ul>
+    `,
+    img: "/images/6.jpeg"
+  },
 ];

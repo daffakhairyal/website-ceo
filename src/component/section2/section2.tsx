@@ -45,7 +45,7 @@ export default function Section2() {
     ></span>
 
     {/* Teks */}
-    <span className={`relative z-10 block border-none transition-transform duration-300 ${titleClicked ? "translate-y-3  text-3xl" : "translate-y-0 text-md"}`}>About Us</span>
+    <span className={`relative z-10 block border-none transition-transform duration-300 ${titleClicked ? "translate-y-3  text-3xl" : "translate-y-0 text-md"}`}>Tentang Kami</span>
   </button>
 
   <button
@@ -57,7 +57,7 @@ export default function Section2() {
         productClicked ? "scale-y-150 rounded-bl-lg" : ""
       }`}
     ></span>
-    <span className={`relative z-10 block transition-transform duration-300  ${productClicked ? "translate-y-3 text-3xl" : "translate-y-0 text-md"}`}>Our Business</span>
+    <span className={`relative z-10 block transition-transform duration-300  ${productClicked ? "translate-y-3 text-3xl" : "translate-y-0 text-md"}`}>Lini Bisnis Kami</span>
   </button>
 </div>
 
@@ -80,21 +80,33 @@ export default function Section2() {
     </h1>
 
     <p className="mb-4 text-gray-50 leading-relaxed text-justify">
-      PT. Centra Energy Optima is a company engaged in managing business units
-      within the gold mining industry. We began our operations in mining,
-      trading, and gold refining, with a primary focus on eastern Indonesia,
-      particularly in Nabire, Papua. As widely recognized, Papua holds
-      significant potential as one of Indonesia’s largest gold-producing
-      regions. Our gold mining operations are based in Nabire, Papua, with an
-      ongoing process to obtain a 5,000-hectare mining concession.
+ PT. CENTRA ENERGI OPTIMA merupakan perusahaan
+ yang bergerak di bidang pengelolaan unit bisnis dalam
+ bidang pertambangan emas industri.
+ Kami memulai operasi kami di bidang pertambangan,
+ perdagangan, dan pemurnian emas, dengan fokus
+ utama di Indonesia bagian timur, khususnya di Nabire,
+ Papua Tengah. Sebagaimana diketahui secara luas,
+ Papua memiliki potensi yang signifikan sebagai salah
+ satu penghasil emas terbesar di wilayah Indonesia.
+
     </p>
 
     <p className="text-gray-50 leading-relaxed text-justify">
-      In 2024, we initiated exploration collaboration and mapping with
-      world-class companies to optimize our mining potential. Through these
-      efforts, we aim to maximize gold production and make a meaningful
-      contribution to national economic growth, particularly benefiting the
-      people of Nabire and its surrounding areas.
+ Pada tahun 2023, kami memulai
+ pemetaan eksplorasi bekerja sama
+ dengan
+ perusahaan-perusahaan
+ kelas dunia untuk mengoptimalkan
+ potensi pertambangan kami.
+ Melalui upaya ini, kami bertujuan
+ untuk memaksimalkan produksi
+ emas dan memberikan kontribusi
+ yang berarti bagi pertumbuhan
+ ekonomi nasional, khususnya bagi
+ Masyarakat Nabire dan daerah
+ sekitarnya.
+
     </p>
   </motion.div>
 
@@ -128,7 +140,7 @@ export default function Section2() {
   >
     <div className="relative w-64 h-64 md:w-100 md:h-100 rounded-full">
       <Image
-        src="/images/hero.jpg"
+        src="/images/mine.jpg"
         alt="Hero Background"
         fill
         priority
@@ -146,38 +158,81 @@ export default function Section2() {
     transition={{ duration: 0.7, ease: "easeOut" }}
   >
     <h1 className="text-5xl font-extrabold text-yellow-500 tracking-tight mb-6">
-      Why Choose Us?
+      Kenapa Kami?
     </h1>
 
     <p className="mb-4 text-gray-50 leading-relaxed text-justify">
-PT. Centra Energy Optima was established 
-in 2022 as a collaborative initiative with the 
-local community of one of the indigenous 
-tribes in Nabire, Central Papua. The 
-customary land in this region has 
-traditionally been managed by the tribe, 
-preserving its cultural and historical 
-heritage. Despite various challenges and 
-limitations, we remain steadfast in our 
-commitment 
-to 
-empowering 
-the 
-indigenous people of Papua, particularly 
-the Auparay Tribe, to rise and thrive. Over 
-time, our shared vision led us to officially 
-establish a unified business entity
+ PT. CENTRA ENERGI OPTIMA memulai
+ aktivitas kemitraannya pada tahun 2019
+ sebagai
+ inisiatif
+ kolaboratif
+ dengan
+ masyarakat lokal dibeberapa wilayah suku
+ asli di Nabire, Papua Tengah.
+ Tanah adat di wilayah ini secara tradisional
+ dikelola oleh suku-suku, melestarikan
+ warisan budaya dan sejarahnya. Meskipun
+ menghadapi berbagai tantangan dan
+ keterbatasan, kami tetap teguh dalam
+ komitmen kami untuk memberdayakan
+ masyarakat adat Papua, khususnya Suku
+ Auparai, untuk bangkit dan berkembang.
+ Seiring waktu, Kesamaan Visi membawa
+ kami untuk resmi mendirikan entitas bisnis
+ terpadu.
     </p>
 
     <p className="text-gray-50 leading-relaxed text-justify">
-This unwavering spirit culminated in the formal founding of PT. Centra 
-Energy Optima, a reflection of our dedication as a community of the 
-Auparay Tribe from the easternmost region of Indonesia to contribute to 
-the nation’s progress. Our ultimate aspiration is to realize the noble 
-vision of the Auparay Tribe, fostering sustainable growth and success in 
-alignment with our collective hopes and ambitions.
+ Semangat yang tak tergoyahkan ini berpuncak pada pendirian resmi PT.
+ CENTRA ENERGI OPTIMA, sebuah cerminan dedikasi kami sebagai
+ komunitas Suku Auparai dari wilayah paling timur Indonesia untuk
+ berkontribusi bagi kemajuan bangsa. Cita-cita utama kami adalah
+ mewujudkan visi mulia Suku Auparai, membina pertumbuhan dan
+ kesuksesan berkelanjutan yang selaras dengan harapan dan ambisi
+ kolektif kita
     </p>
   </motion.div>
+
+<div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-10">
+    {/* Kolom Kanan - Judul dan Deskripsi */}
+  <motion.div
+    initial={{ x: -50, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+  >
+    <h1 className="text-3xl font-extrabold text-yellow-500 tracking-tight mb-2">
+      Visi
+    </h1>
+
+    <p className="mb-4 text-gray-50 leading-relaxed text-justify">
+Menciptakan produk emas berkualitas tinggi 
+dengan kemurnian hingga 99,99%
+    </p>
+
+
+  </motion.div>
+  {/* Kolom Kiri - Gambar */}
+      <motion.div
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    className="rounded-full p-6 "
+  >
+    <h1 className="text-3xl font-extrabold text-yellow-500 tracking-tight mb-2">
+      Misi
+    </h1>
+
+    <p className="mb-4 text-gray-50 leading-relaxed text-justify">
+Menjadi perusahaan emas terkemuka yang
+ memiliki jaringan bisnis yang luas di tingkat
+ nasional serta dikenal sebagai merek ber
+reputasi di tingkat internasional.
+    </p>
+  </motion.div>
+  </div>
 
 </div>
 </div>
@@ -196,31 +251,50 @@ alignment with our collective hopes and ambitions.
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-5xl font-extrabold text-yellow-500 tracking-tight mb-4 md:mb-0"
         >
-          Business Line
+          Lini Bisnis
         </motion.h2>
         <br />
         <br />
        <div className="text-white text-justify">
-        PT Centra Energy Optima is a company focused on the gold industry with two main business lines: gold refining 
-        and gold trading. In its refining operations, the company is committed to processing and purifying gold to high 
-        standards, producing quality products that meet both domestic and international market demands. Meanwhile, in its 
-        trading division, PT Centra Energy Optima actively engages in the buying and selling of gold, whether in bullion 
-        form or other derivative products, upholding transparency, trust, and professionalism as the foundation of all 
-        its business activities.
+PT Centra Energy Optima berfokus pada pengembangan ekosistem emas yang terintegrasi melalui lima lini bisnis utama: refining, 
+trading, mining, minting, dan bullion bank. Setiap lini saling mendukung untuk menciptakan rantai nilai emas yang berkelanjutan — 
+mulai dari proses penambangan dan pemurnian, hingga pencetakan, perdagangan, serta layanan keuangan berbasis emas. Dengan komitmen 
+terhadap kualitas, transparansi, dan inovasi, 
+PT Centra Energy Optima berupaya menjadi pelaku utama dalam industri emas nasional maupun global.
         </div>   
 <br />
 <br />
-            <div className="flex flex-col md:flex-row space-x-4 w-full md:w-1/2 space-y-4 md:space-y-0">
-        <FlipCard
-          frontImage="/images/hero.jpg"
-          frontTitle="Refinery"
-          backText="Our refinery processes gold to high standards for domestic and international markets."
-        />
-        <FlipCard
-          frontImage="/images/mine.jpg"
-          frontTitle="Trading"
-          backText="We actively trade gold, both bullion and derivatives, with transparency and professionalism."
-        />
+            <div className="flex flex-col md:flex-row space-x-4 w-full  space-y-4 md:space-y-0">
+<FlipCard
+  frontImage="/images/mine.jpg"
+  frontTitle="Mining"
+  backText="Proses penambangan emas dari bumi untuk menghasilkan gold dore (emas mentah) yang kemudian diproses lebih lanjut."
+/>
+
+<FlipCard
+  frontImage="/images/hero.jpg"
+  frontTitle="Refinery"
+  backText="Fasilitas pemurnian emas yang mengolah dan memproses emas hingga mencapai standar tinggi untuk pasar domestik dan internasional."
+/>
+
+<FlipCard
+  frontImage="/images/minting.jpg"
+  frontTitle="Minting"
+  backText="Proses pemurnian dan pembentukan emas murni menjadi batangan atau koin dengan kadar kemurnian 99,99%, siap untuk dijual atau disimpan."
+/>
+
+<FlipCard
+  frontImage="/images/trading.jpg"
+  frontTitle="Trading"
+  backText="Kegiatan jual beli emas, baik dalam bentuk batangan maupun produk turunannya, dengan menjunjung tinggi transparansi dan profesionalisme."
+/>
+
+<FlipCard
+  frontImage="/images/bullion.jpg"
+  frontTitle="Bullion Bank"
+  backText="Lembaga keuangan yang memperdagangkan, menyimpan, meminjamkan, dan mengelola transaksi emas di pasar global."
+/>
+
 
       </div>
 

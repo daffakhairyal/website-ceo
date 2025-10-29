@@ -1,32 +1,46 @@
-"use client"; // wajib di Next.js 13+ jika pakai app directory
+"use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Script from "next/script";
 
 export default function GTranslate() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    // set konfigurasi
-    (window as any).gtranslateSettings = {
-      default_language: "en",
-      native_language_names: true,
-      detect_browser_language: true,
-      languages: ["id", "fr", "it", "es", "en"],
-      wrapper_selector: ".gtranslate_wrapper",
-      switcher_horizontal_position: "right",
-      switcher_vertical_position: "bottom",
-      float_switcher_open_direction: "right",
-    };
+    // Re-trigger GTranslate saat route berubah
+    if (typeof window !== "undefined" && (window as any).gtranslateSettings) {
+      const event = new Event("gtranslate:update");
+      window.dispatchEvent(event);
+    }
+  }, [pathname]);
 
-    // inject script
-    const script = document.createElement("script");
-    script.src = "https://cdn.gtranslate.net/widgets/latest/float.js";
-    script.defer = true;
-    document.body.appendChild(script);
+  return (
+    <>
+      {/* Tempat GTranslate akan muncul */}
+      <div className="gtranslate_wrapper"></div>
 
-    // optional cleanup
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+      {/* Inisialisasi konfigurasi */}
+      <Script id="gtranslate-settings" strategy="beforeInteractive">
+        {`
+          window.gtranslateSettings = {
+            default_language: "id",
+            native_language_names: true,
+            detect_browser_language: true,
+            languages: ["id","ar","zh-CN","ms","ko", "en"],
+            wrapper_selector: ".gtranslate_wrapper",
+            switcher_horizontal_position: "right",
+            switcher_vertical_position: "top",
+            float_switcher_open_direction: "right"
+          };
+        `}
+      </Script>
 
-  return <div className="gtranslate_wrapper"></div>;
+      {/* Script utama dari GTranslate */}
+      <Script
+        src="https://cdn.gtranslate.net/widgets/latest/float.js"
+        strategy="afterInteractive"
+      />
+    </>
+  );
 }

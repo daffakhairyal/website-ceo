@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Search, Menu, X } from "lucide-react"
 import {useRouter} from 'next/navigation'
 import Image from "next/image";
-import GTranslate from "../translate/gtranslate";
+
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -177,7 +177,6 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
             {/* <button onClick={()=> setSearchClicked(!searchClicked)} className="relative cursor-pointer">
              {!searchClicked ? <Search className={`h-6 ${!scrolled && isHome ? "text-white" : "hover:text-gray-900"}`} /> : <X className={`h-6 ${!scrolled && isHome ? "text-white" : "hover:text-gray-900"}`} /> } 
             </button> */}
-            <GTranslate/>
           </div>
         </nav>
 

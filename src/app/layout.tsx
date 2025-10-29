@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GTranslate from "@/component/translate/gtranslate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +20,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-            <head>
+    <html lang="id">
+      <head>
         <link rel="icon" href="/images/logo.png" />
         <link rel="apple-touch-icon" href="/images/logo.png" />
       </head>
@@ -32,8 +31,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+
+        {/* Tempatkan widget GTranslate di bawah */}
+        <GTranslate />
       </body>
-      
     </html>
   );
 }

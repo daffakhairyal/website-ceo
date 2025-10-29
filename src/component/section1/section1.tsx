@@ -67,12 +67,13 @@ export default function Section1() {
             className="text-left max-w-xl"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-              Leading Gold, Connecting Nations.
+              Emas Berkualitas, Dari Indonesia untuk Dunia.
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-200 mb-10">
-          Become a leading gold company from the region that 
-has national network and international brand
+            <p className="text-lg md:text-xl text-gray-200 mb-10 text-justify">
+            Menghadirkan kemurnian dan keunggulan tanpa batas.
+            Dari tambang hingga perdagangan dengan standar terbaik, 
+            Integritas, inovasi, dan keberlanjutan dalam setiap langkah. 
             </p>
 
             <div className="flex gap-4">
