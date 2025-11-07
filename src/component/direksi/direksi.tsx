@@ -20,7 +20,7 @@ const directors = [
     id:2,
     name: "Yerisvo Hendra",
     position: "Direktur Keuangan",
-    image: "/images/yerisvo.jpeg",
+    image: "/images/yerisvohendra.jpeg",
     description:
       "Mengelola dan mengawasi seluruh aspek keuangan perusahaan, memastikan transparansi, efisiensi, dan keberlanjutan finansial.",
     email: "yerisvohendra@centraenergioptima.com",
