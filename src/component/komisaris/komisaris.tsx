@@ -1,53 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Mail, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Linkedin, ChevronRight, ChevronLeft } from "lucide-react";
+import axios from "axios";
 
-const directors = [
-  {
-    name: "Yan Felix Auparai",
-    position: "Komisaris Utama",
-    image: "/images/felix.jpeg",
-    email: "suryonugroho@centraenergioptima.com",
-    description:
-        "Sebagai Komisaris Utama, beliau bertanggung jawab untuk mengawasi jalannya perusahaan dan memastikan kepatuhan terhadap regulasi serta tata kelola yang baik.",
-    linkedin: "#",
-  },
-  {
-    name: "H Faridian Faisal",
-    position: "Komisaris",
-    image: "/images/komisaris1.jpeg",
-    email: "faridian@centraenergioptima.com",
-    description:
-        "Sebagai anggota dewan komisaris, beliau berperan dalam memberikan arahan strategis dan pengawasan terhadap kinerja manajemen perusahaan.",
-    linkedin: "#",
-  },
-  {
-    name: "Ismet Jaya Suganda",
-    position: "Komisaris",
-    image: "/images/basri.jpeg",
-    email: "ismet@centraenergioptima.com",
-    description:
-        "Sebagai anggota dewan komisaris, beliau berperan dalam memberikan arahan strategis dan pengawasan terhadap kinerja manajemen perusahaan.",
-    linkedin: "#",
-  },
-];
+type Leader = {
+  img: string;
+  name: string;
+  title:string;
+  position:string;
+  email: string;
+  linkedin: string;
+  status: number;
+  description: string;
+};
+const BASE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
 
-export default function Komisaris() {
+export default function Direksi() {
+  const [data, setData] = useState<Leader[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const currentDirector = directors[currentIndex];
-const mobileCurrentDirector = directors;
+  const currentDirector = data[currentIndex] || {};
+const mobileCurrentDirector = data;
 
+
+useEffect(()=>{
+    try {
+      axios.get(BASE_URL+'/api/komisaris',{
+      withCredentials: true
+      })
+      .then(response => {
+        console.log(response.data);
+        setData(response.data)
+      })
+    } catch (error) {
+      
+    }
+}, [])
 
   const nextDirector = () => {
-    setCurrentIndex((prev) => (prev + 1) % directors.length);
+    setCurrentIndex((prev) => (prev + 1) % data.length);
   };
 
   const prevDirector = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? directors.length - 1 : prev - 1
+      prev === 0 ? data.length - 1 : prev - 1
     );
   };
 
@@ -61,11 +59,11 @@ const mobileCurrentDirector = directors;
         className="text-center mb-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wide">
-          Board of Commisioner
+          Board of Commisioners
         </h2>
         <div className="w-24 h-1 bg-gray-900 mx-auto mt-3 rounded-full"></div>
         <p className="text-gray-800 mt-4 max-w-2xl mx-auto text-sm md:text-base">
-          Tim manajemen kami berkomitmen untuk mengawasi strategi perusahaan
+          Tim manajemen kami berkomitmen untuk menjalankan strategi perusahaan
           dengan profesionalisme, inovasi, dan integritas.
         </p>
       </motion.div>
@@ -84,8 +82,8 @@ const mobileCurrentDirector = directors;
             {/* Kiri - Foto */}
             <div className="relative md:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
               <Image
-                src={currentDirector.image}
-                alt={currentDirector.name}
+                src={`${BASE_URL}/storage/${currentDirector.img}`}
+                alt={currentDirector.name || "Director image"}
                 fill
                 className="object-cover"
                 priority
@@ -97,7 +95,7 @@ const mobileCurrentDirector = directors;
                   <span className="font-semibold text-yellow-400 text-3xl">
                     {String(currentIndex + 1).padStart(2, "0")}
                   </span>{" "}
-                  / <span className="font-semibold text-3xl">{String(directors.length).padStart(2, "0")}</span>
+                  / <span className="font-semibold text-3xl">{String(data.length).padStart(2, "0")}</span>
                 </div>
                 <div className="flex gap-3">
                   <button
@@ -120,21 +118,21 @@ const mobileCurrentDirector = directors;
             <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
               <div className="mb-2">
                 <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
-                  Komisaris
+                  Direksi
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-2">
                 {currentDirector.name}
               </h3>
               <p className="text-yellow-600 font-medium mb-4">
-                {currentDirector.position}
+                {currentDirector.title}
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 {currentDirector.description}
               </p>
 
               {/* Kontak */}
-              <div className="flex gap-4 mt-6">
+              {/* <div className="flex gap-4 mt-6">
                 <a
                   href={`mailto:${currentDirector.email}`}
                   className="text-gray-500 hover:text-yellow-600 transition"
@@ -148,7 +146,7 @@ const mobileCurrentDirector = directors;
                 >
                   <Linkedin size={22} />
                 </a>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </AnimatePresence>
@@ -156,185 +154,73 @@ const mobileCurrentDirector = directors;
 
 
       {/* ====== MOBILE MAIN CONTENT ====== */}
+      {data.length > 0 ? (
+  data.map((item, index) => (
+    <div
+      key={index}
+      className="md:hidden flex md:flex-col md:flex-row items-center justify-center w-full max-w-6xl relative space-y-8"
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -80 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-center w-full"
+        >
+          {/* Kiri - Foto */}
+          <div className="relative md:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
+            <Image
+              src={`${BASE_URL}/storage/${item.img}`}
+              alt={item.name}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
-            <div className="md:hidden flex md:flex-col md:flex-row items-center justify-center w-full max-w-6xl relative space-y-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -80 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-center w-full"
-          >
-            {/* Kiri - Foto */}
-            <div className="relative md:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
-              <Image
-                src={mobileCurrentDirector[0].image}
-                alt={mobileCurrentDirector[0].name}
-                fill
-                className="object-cover"
-                priority
-              />
-
+          {/* Kanan - Detail */}
+          <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
+            <div className="mb-2">
+              <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
+                Direksi
+              </span>
             </div>
 
-            {/* Kanan - Detail */}
-            <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
-              <div className="mb-2">
-                <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
-                  Komisaris
-                </span>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {mobileCurrentDirector[0].name}
-              </h3>
-              <p className="text-yellow-600 font-medium mb-4">
-                {mobileCurrentDirector[0].position}
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {mobileCurrentDirector[0].description}
-              </p>
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">{item.name}</h3>
 
-              {/* Kontak */}
-              <div className="flex gap-4 mt-6">
-                <a
-                  href={`mailto:${mobileCurrentDirector[0].email}`}
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Mail size={22} />
-                </a>
-                <a
-                  href={mobileCurrentDirector[0].linkedin}
-                  target="_blank"
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Linkedin size={22} />
-                </a>
-              </div>
+            <p className="text-yellow-600 font-medium mb-4">
+              {item.position ?? item.title}
+            </p>
+
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {item.description}
+            </p>
+
+            <div className="flex gap-4 mt-6">
+              <a
+                href={`mailto:${item.email}`}
+                className="text-gray-500 hover:text-yellow-600 transition"
+              >
+                <Mail size={22} />
+              </a>
+
+              <a
+                href={item.linkedin}
+                target="_blank"
+                className="text-gray-500 hover:text-yellow-600 transition"
+              >
+                <Linkedin size={22} />
+              </a>
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-                  <div className="md:hidden flex md:flex-col md:flex-row items-center justify-center w-full max-w-6xl relative space-y-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -80 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-center w-full"
-          >
-            {/* Kiri - Foto */}
-            <div className="relative md:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
-              <Image
-                src={mobileCurrentDirector[1].image}
-                alt={mobileCurrentDirector[1].name}
-                fill
-                className="object-cover"
-                priority
-              />
-
-            </div>
-
-            {/* Kanan - Detail */}
-            <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
-              <div className="mb-2">
-                <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
-                  Komisaris
-                </span>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {mobileCurrentDirector[1].name}
-              </h3>
-              <p className="text-yellow-600 font-medium mb-4">
-                {mobileCurrentDirector[1].position}
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {mobileCurrentDirector[1].description}
-              </p>
-
-              {/* Kontak */}
-              <div className="flex gap-4 mt-6">
-                <a
-                  href={`mailto:${mobileCurrentDirector[1].email}`}
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Mail size={22} />
-                </a>
-                <a
-                  href={mobileCurrentDirector[1].linkedin}
-                  target="_blank"
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Linkedin size={22} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-            <div className="md:hidden flex md:flex-col md:flex-row items-center justify-center w-full max-w-6xl relative space-y-8">
-        <AnimatePresence mode="wait">
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -80 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center justify-center w-full"
-          >
-            {/* Kiri - Foto */}
-            <div className="relative md:w-1/2 w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
-              <Image
-                src={mobileCurrentDirector[2].image}
-                alt={mobileCurrentDirector[2].name}
-                fill
-                className="object-cover"
-                priority
-              />
-
-            </div>
-
-            {/* Kanan - Detail */}
-            <div className="bg-white rounded-2xl shadow-lg md:-ml-16 mt-8 md:mt-0 p-8 md:w-[45%] relative z-10">
-              <div className="mb-2">
-                <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">
-                  Direksi
-                </span>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                {mobileCurrentDirector[2].name}
-              </h3>
-              <p className="text-yellow-600 font-medium mb-4">
-                {mobileCurrentDirector[2].position}
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {mobileCurrentDirector[2].description}
-              </p>
-
-              {/* Kontak */}
-              <div className="flex gap-4 mt-6">
-                <a
-                  href={`mailto:${mobileCurrentDirector[2].email}`}
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Mail size={22} />
-                </a>
-                <a
-                  href={mobileCurrentDirector[2].linkedin}
-                  target="_blank"
-                  className="text-gray-500 hover:text-yellow-600 transition"
-                >
-                  <Linkedin size={22} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  ))
+) : (
+  <div>Data Not Found</div>
+)}
     </section>
   );
 }
