@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
 
 const BASE_URL = "https://centraenergioptima.com/api";
+const BASE_URL_IMAGE = "https://centraenergioptima.com";
 
 type Legal = {
   title : string;
@@ -73,7 +74,7 @@ useEffect(() => {
               <h2 className="text-2xl font-semibold mb-2">{doc.title}</h2>
               <p className="text-gray-500 text-center mb-4">{doc.description}</p>
               <a
-                href={`${BASE_URL}/storage/${doc.fileUrl}`}
+                href={`${BASE_URL_IMAGE}/storage/${doc.fileUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -101,13 +102,13 @@ useEffect(() => {
     <div className="relative w-full h-[700px] md:h-[900px] bg-white shadow-lg rounded-2xl overflow-hidden flex items-center justify-center">
       {/\.(jpeg|jpg|png|webp)$/i.test(selectedDoc.fileUrl) ? (
         <img
-          src={`${BASE_URL}/storage/${selectedDoc.fileUrl}`}
+          src={`${BASE_URL_IMAGE}/storage/${selectedDoc.fileUrl}`}
           alt={selectedDoc.title}
           className="max-w-full max-h-full object-contain"
         />
       ) : selectedDoc.fileUrl.endsWith(".pdf") ? (
         <iframe
-          src={`${BASE_URL}/storage/${selectedDoc.fileUrl}`}
+          src={`${BASE_URL_IMAGE}/storage/${selectedDoc.fileUrl}`}
           title={selectedDoc.title}
           className="w-full h-full"
         />

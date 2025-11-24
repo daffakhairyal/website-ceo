@@ -143,7 +143,7 @@ export default function Direksi() {
             >
               <div className="relative w-full h-[400px] overflow-hidden rounded-xl shadow-lg">
                 <img
-                  src={`${BASE_URL}/storage/${item.img}`}
+                  src={`${BASE_URL_IMAGE}/storage/${item.img}`}
                   alt={item.name}
                   className="object-cover w-full h-full"
                 />
