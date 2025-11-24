@@ -26,7 +26,7 @@ export default function Direksi() {
 
   useEffect(() => {
     axios
-      .get(BASE_URL + "/api/direksi", { withCredentials: true })
+      .get(BASE_URL + "/direksi", { withCredentials: true })
       .then((res) => setData(res.data))
       .catch(() => {});
   }, []);
