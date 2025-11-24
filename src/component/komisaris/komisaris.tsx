@@ -46,7 +46,7 @@ export default function Direksi() {
         className="text-center mb-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wide">
-          Board of Directors
+          Board of Commissioners
         </h2>
         <div className="w-24 h-1 bg-gray-900 mx-auto mt-3 rounded-full" />
         <p className="text-gray-800 mt-4 max-w-2xl mx-auto text-sm md:text-base">
