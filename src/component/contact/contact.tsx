@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Globe, Mail, Phone } from "lucide-react";
+import { Instagram, Globe, Mail, Phone, MapPin } from "lucide-react";
 
 const contacts = [
   {
     id: 1,
     name: "Instagram",
     icon: <Instagram className="w-7 h-7" />,
-    link: "https://instagram.com/username",
+    link: "https://instagram.com/centra.energi.optima",
   },
   {
     id: 2,
@@ -20,13 +20,20 @@ const contacts = [
     id: 3,
     name: "Email",
     icon: <Mail className="w-7 h-7" />,
-    link: "info@centraenergioptima.com",
+    link: "mailto:info@centraenergioptima.com",
   },
   {
     id: 4,
     name: "Telepon",
     icon: <Phone className="w-7 h-7" />,
-    link: "wa.me/6287874065078",
+    link: "https://wa.me/6287874065078",
+  },
+  {
+    id: 5,
+    name: "Alamat",
+    icon: <MapPin className="w-7 h-7" />,
+    link: "https://goo.gl/maps/xu7oN9Rf3e3X4T1k7", // bisa link Google Maps
+    text: "Jl. Raya Cijayanti No.07, Cijayanti, Kec. Babakan Madang, Kabupaten Bogor, Jawa Barat 16810",
   },
 ];
 
@@ -67,6 +74,12 @@ export default function Contact() {
               <span className="text-lg font-semibold text-gray-800">
                 {contact.name}
               </span>
+              {/* Jika ada text alamat, tampilkan */}
+              {contact.text && (
+                <span className="text-sm text-gray-600 mt-2 px-2">
+                  {contact.text}
+                </span>
+              )}
             </motion.a>
           ))}
         </div>
@@ -79,7 +92,7 @@ export default function Contact() {
           className="w-full h-96 rounded-2xl overflow-hidden border border-yellow-500/30 shadow-[0_0_20px_rgba(255,215,0,0.15)]"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.123456789!2d106.827153!3d-6.175110!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7e0c0abcdef%3A0x123456789abcdef!2sMonas!5e0!3m2!1sen!2sid!4v1699999999999!5m2!1sen!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.448146617527!2d106.85824691038604!3d-6.591087193375086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c700094ca52b%3A0x104a2fb1e2045c71!2sGRAHA%20CEO!5e0!3m2!1sen!2sid!4v1764003978233!5m2!1sen!2sid"
             width="100%"
             height="100%"
             style={{ border: 0 }}
