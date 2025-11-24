@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Globe, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Globe, Mail, Phone } from "lucide-react";
 
 const contacts = [
   {
@@ -20,15 +20,14 @@ const contacts = [
     id: 3,
     name: "Email",
     icon: <Mail className="w-7 h-7" />,
-    link: "mailto:info@centraenergioptima.com",
+    link: "info@centraenergioptima.com",
   },
   {
     id: 4,
     name: "Telepon",
     icon: <Phone className="w-7 h-7" />,
-    link: "https://wa.me/6287874065078",
+    link: "wa.me/6287874065078",
   },
-
 ];
 
 export default function Contact() {
@@ -68,12 +67,6 @@ export default function Contact() {
               <span className="text-lg font-semibold text-gray-800">
                 {contact.name}
               </span>
-              {/* Jika ada text alamat, tampilkan */}
-              {contact.text && (
-                <span className="text-sm text-gray-600 mt-2 px-2">
-                  {contact.text}
-                </span>
-              )}
             </motion.a>
           ))}
         </div>
