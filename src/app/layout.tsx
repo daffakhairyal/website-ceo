@@ -33,7 +33,7 @@ export default function RootLayout({
         {children}
 
         {/* Tempatkan widget GTranslate di bawah */}
-        <GTranslate />
+        {/* <GTranslate /> */}
       </body>
     </html>
   );
