@@ -11,7 +11,7 @@ type Business = {
   title: string;
   description: string;
 };
-const BASE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
+// const BASE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
 
 
 export default function Business1(){
@@ -64,7 +64,7 @@ and liquidity solutions, strengthening its position as a trusted and comprehensi
                 key={index}
                 frontImage={
       item.img 
-        ? `${BASE_URL}/storage/${item.img}` 
+        ? `http://nginx-server:8000/storage/${item.img}` 
         : "/images/default.jpg"
     }
                 frontTitle={item.title}

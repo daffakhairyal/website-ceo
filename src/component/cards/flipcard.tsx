@@ -25,13 +25,12 @@ export default function FlipCard({ frontImage, frontTitle, backText }: FlipCardP
       >
         {/* Front (gambar + judul di tengah) */}
         <div className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden flex items-center justify-center bg-gray-800">
-          <Image
-            src={frontImage}
-            alt={frontTitle}
-            fill
-            className="object-cover"
-            priority={true}
-          />
+<img
+  src={frontImage}
+  alt={frontTitle}
+  className="object-cover w-full h-full"
+  loading="lazy"
+/>
           <h3 className="absolute text-3xl font-bold text-white text-center">{frontTitle}</h3>
         </div>
 

@@ -1,36 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ShieldCheck, FileText, FileCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios';
 
-const legalDocs = [
-  {
-    title: "SK Kemenkum 1",
-    description: "Pengesahan pendirian badan hukum Perseoran Terbatas",
-    icon: <FileText className="w-10 h-10 text-blue-500" />,
-    fileUrl: "/documents/kemenkum1.jpeg",
-  },
-  {
-    title: "SK Kemenkum 2",
-    description: "Pengesahan pendirian badan hukum Perseoran Terbatas",
-    icon: <FileCheck className="w-10 h-10 text-green-500" />,
-    fileUrl: "/documents/kemenkum2.jpeg",
-  },
-  {
-    title: "Notaris",
-    description: "Dokumen notaris",
-    icon: <ShieldCheck className="w-10 h-10 text-purple-500" />,
-    fileUrl: "/documents/notaris.jpeg",
-  },
-];
+const BASE_URL = "http://localhost:8000";
+
+type Legal = {
+  title : string;
+  description: string;
+  icon : string;
+  fileUrl : string;
+}
 
 export default function Legal() {
-  const [selectedDoc, setSelectedDoc] = useState(legalDocs[0]);
+  const [data, setData] = useState<Legal[]>([]);
+  const [selectedDoc, setSelectedDoc] = useState<Legal | null>(null);
 
   const sliderSettings = {
     dots: true,
@@ -41,9 +31,22 @@ export default function Legal() {
     arrows: true,
     autoplay: true,
     autoplaySpeed: 5000,
-    beforeChange: (_current: number, next: number) => setSelectedDoc(legalDocs[next]),
+    beforeChange: (_current: number, next: number) => setSelectedDoc(data[next]),
     fade: true,
   };
+
+useEffect(() => {
+  axios
+    .get(`${BASE_URL}/api/legals`, { withCredentials: true })
+    .then((res) => {
+      setData(res.data);
+      setSelectedDoc(data[0]);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}, []);
+
 
   return (
     <div className="min-h-screen pt-30 bg-gray-50 pb-10">
@@ -59,18 +62,18 @@ export default function Legal() {
       {/* Slider Card */}
       <div className="max-w-4xl mx-auto">
         <Slider {...sliderSettings}>
-          {legalDocs.map((doc, idx) => (
+          {data.map((doc, idx) => (
             <motion.div
               key={idx}
               className="bg-white shadow-xl rounded-2xl p-8 flex flex-col items-center cursor-pointer hover:shadow-2xl transition"
               whileHover={{ scale: 1.05 }}
               onClick={() => setSelectedDoc(doc)}
             >
-              <div className="mb-4">{doc.icon}</div>
+            
               <h2 className="text-2xl font-semibold mb-2">{doc.title}</h2>
               <p className="text-gray-500 text-center mb-4">{doc.description}</p>
               <a
-                href={doc.fileUrl}
+                href={`${BASE_URL}/storage/${doc.fileUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -83,26 +86,39 @@ export default function Legal() {
         </Slider>
       </div>
 
-      {/* Preview Gambar Besar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="mt-16 max-w-5xl mx-auto px-4"
-      >
-        <h3 className="text-3xl font-semibold mb-6 text-center text-gray-700">
-          {selectedDoc.title}
-        </h3>
-        <div className="relative w-full h-[700px] md:h-[900px] bg-white shadow-lg rounded-2xl overflow-hidden">
-          <Image
-            src={selectedDoc.fileUrl}
-            alt={selectedDoc.title}
-            fill
-            style={{ objectFit: "contain" }}
-            priority
-          />
-        </div>
-      </motion.div>
+
+{selectedDoc && (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.3 }}
+    className="mt-16 max-w-5xl mx-auto px-4"
+  >
+    <h3 className="text-3xl font-semibold mb-6 text-center text-gray-700">
+      {selectedDoc.title}
+    </h3>
+
+    <div className="relative w-full h-[700px] md:h-[900px] bg-white shadow-lg rounded-2xl overflow-hidden flex items-center justify-center">
+      {/\.(jpeg|jpg|png|webp)$/i.test(selectedDoc.fileUrl) ? (
+        <img
+          src={`${BASE_URL}/storage/${selectedDoc.fileUrl}`}
+          alt={selectedDoc.title}
+          className="max-w-full max-h-full object-contain"
+        />
+      ) : selectedDoc.fileUrl.endsWith(".pdf") ? (
+        <iframe
+          src={`${BASE_URL}/storage/${selectedDoc.fileUrl}`}
+          title={selectedDoc.title}
+          className="w-full h-full"
+        />
+      ) : (
+        <p className="text-gray-500">Preview tidak tersedia</p>
+      )}
+    </div>
+  </motion.div>
+)}
+
+
 
       <motion.div
         initial={{ opacity: 0 }}

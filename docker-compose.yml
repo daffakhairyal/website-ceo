@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  nextjs:
+    build: .
+    container_name: nextjs-app
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_DISABLE_ESLINT_PLUGIN: "1"
+      NEXT_TELEMETRY_DISABLED: "1"
+    restart: unless-stopped

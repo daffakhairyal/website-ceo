@@ -1,24 +1,34 @@
-# ---------- STAGE 1: Build ----------
-FROM node:20.15.1-alpine AS builder
+# Tahap 1: Build Next.js
+FROM node:18-alpine AS builder
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies
+RUN npm install
+
+# Copy seluruh project
 COPY . .
+
+# Build Next.js dengan skip ESLint
+ENV NEXT_DISABLE_ESLINT_PLUGIN=1
+ENV NEXT_TELEMETRY_DISABLED=1
+
 RUN npm run build
 
-# ---------- STAGE 2: Runtime ----------
-FROM node:20.15.1-alpine AS runner
+# Tahap 2: Menjalankan aplikasi
+FROM node:18-alpine AS runner
 
 WORKDIR /app
-ENV NODE_ENV=production
 
-# Copy only necessary files from builder
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/next.config.ts ./next.config.ts
-COPY --from=builder /app/node_modules ./node_modules
+# Copy hasil build dari tahap sebelumnya
+COPY --from=builder /app ./
+
+ENV NODE_ENV=production
+ENV PORT=3000
 
 EXPOSE 3000
+
 CMD ["npm", "start"]
