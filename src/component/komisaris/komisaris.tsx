@@ -17,6 +17,7 @@ type Leader = {
 };
 
 const BASE_URL = "https://centraenergioptima.com/api";
+const BASE_URL_IMAGE = "https://centraenergioptima.com";
 
 export default function Direksi() {
   const [data, setData] = useState<Leader[]>([]);

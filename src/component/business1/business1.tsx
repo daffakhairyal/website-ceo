@@ -64,7 +64,7 @@ and liquidity solutions, strengthening its position as a trusted and comprehensi
                 key={index}
                 frontImage={
       item.img 
-        ? `http://nginx-server:8000/storage/${item.img}` 
+        ? `https://centraenergioptima/storage/${item.img}` 
         : "/images/default.jpg"
     }
                 frontTitle={item.title}
