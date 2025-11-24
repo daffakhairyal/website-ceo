@@ -16,7 +16,7 @@ type Leader = {
   description: string;
 };
 
-const BASE_URL = "http://148.230.96.205:8000";
+const BASE_URL = "https://centraenergioptima.com/api";
 
 export default function Direksi() {
   const [data, setData] = useState<Leader[]>([]);

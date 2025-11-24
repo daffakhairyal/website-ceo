@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
 
-const BASE_URL = "http://148.230.96.205:8000";
+const BASE_URL = "https://centraenergioptima.com/api";
 
 type Legal = {
   title : string;
