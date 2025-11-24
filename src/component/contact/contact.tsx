@@ -28,13 +28,7 @@ const contacts = [
     icon: <Phone className="w-7 h-7" />,
     link: "https://wa.me/6287874065078",
   },
-  {
-    id: 5,
-    name: "Alamat",
-    icon: <MapPin className="w-7 h-7" />,
-    link: "https://goo.gl/maps/xu7oN9Rf3e3X4T1k7", // bisa link Google Maps
-    text: "Jl. Raya Cijayanti No.07, Cijayanti, Kec. Babakan Madang, Kabupaten Bogor, Jawa Barat 16810",
-  },
+
 ];
 
 export default function Contact() {
