@@ -43,6 +43,7 @@ export default function Contact() {
           Contact Us
         </motion.h2>
 
+
         {/* Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {contacts.map((contact, index) => (
