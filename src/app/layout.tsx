@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PT. Centra Energi Optima – Pertambangan, Perdagangan & Pemurnian Emas",
   description:
-    "PT. Centra Energi Optima adalah perusahaan yang bergerak di bidang pertambangan emas, perdagangan, dan pemurnian emas, berlokasi di Indonesia.",
+    "PT. Centra Energi Optima adalah perusahaan yang bergerak di bidang pertambangan emas, perdagangan, dan pemurnian emas yang berlokasi di Indonesia.",
   keywords: [
     "Centra Energi Optima",
     "pertambangan emas",
