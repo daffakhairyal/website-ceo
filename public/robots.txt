@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.centraenergioptima.com/sitemap.xml
+
+Sitemap: https://centraenergioptima.com/sitemap.xml

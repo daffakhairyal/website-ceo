@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://centraenergioptima.com"),
   title: "PT. Centra Energi Optima – Pertambangan, Perdagangan & Pemurnian Emas",
   description:
     "PT. Centra Energi Optima adalah perusahaan yang bergerak di bidang pertambangan emas, perdagangan, dan pemurnian emas yang berlokasi di Indonesia.",
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
     "gold mining Indonesia",
     "PT Centra Energi Optima",
   ],
+   alternates: {
+    canonical: "/",
+  },
   authors: [{ name: "PT. Centra Energi Optima" }],
   openGraph: {
     title:
@@ -77,6 +81,42 @@ export default function RootLayout({
             }),
           }}
         />
+
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PT. Centra Energi Optima",
+      "legalName": "PT. Centra Energi Optima",
+      "url": "https://centraenergioptima.com",
+      "logo": "https://centraenergioptima.com/images/logo.png",
+      "description": "PT. Centra Energi Optima bergerak di bidang pertambangan emas, perdagangan, dan pemurnian emas di Indonesia.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jakarta",
+        "addressLocality": "Jakarta",
+        "addressRegion": "DKI Jakarta",
+        "addressCountry": "ID"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "info@centraenergioptima.com",
+          "telephone": "+62",
+          "areaServed": "ID"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/centra.energi.optima",
+        "https://www.linkedin.com/company/centraenergioptima"
+      ]
+    }),
+  }}
+/>
+
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
