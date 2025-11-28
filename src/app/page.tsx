@@ -1,6 +1,7 @@
 import Navbar from "@/component/navbar/navbar"
 import { Suspense, lazy } from "react"
 import Footer from "@/component/footer/footer"
+import Head from "next/head"
 
 
 const Section22 = lazy(() => import("@/component/section2/section2"))
@@ -10,6 +11,13 @@ const GalleryHome = lazy(() => import("@/component/galleryhome/galleryhome"))
 export default function HeroSection() {
 
   return (
+    <>
+      <Head>
+        <link
+          rel="canonical"
+          href={`https://centraenergioptima.com/`}
+        />
+      </Head>
     <main>
       <Navbar />
 {/*Section 1*/}
@@ -29,5 +37,6 @@ export default function HeroSection() {
     </Suspense>
     <Footer/>
     </main>
+    </>
   )
 }
