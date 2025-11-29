@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "PT. Centra Energi Optima – Pertambangan, Perdagangan & Pemurnian Emas",
     description:
       "Perusahaan pertambangan dan pemurnian emas di Indonesia, dengan operasi di Papua dan fasilitas di Tangerang.",
-    url: "https://centraenergioptima.com",
+    url: "https://centraenergioptima.com/",
     siteName: "Centra Energi Optima",
     locale: "id_ID",
     type: "website",
@@ -55,32 +55,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/logo.png" />
 
         {/* Structured Data / Schema.org */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "PT. Centra Energi Optima",
-              url: "https://centraenergioptima.com",
-              logo: "https://centraenergioptima.com/images/logo.png",
-              description:
-                "Perusahaan pertambangan, perdagangan dan pemurnian emas di Indonesia.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "South Tangerang",
-                addressCountry: "ID",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+62",
-                contactType: "customer service",
-                areaServed: "ID",
-                availableLanguage: ["Indonesian", "English"],
-              },
-            }),
-          }}
-        />
 
         <script
   type="application/ld+json"
@@ -90,7 +64,7 @@ export default function RootLayout({
       "@type": "Organization",
       "name": "PT. Centra Energi Optima",
       "legalName": "PT. Centra Energi Optima",
-      "url": "https://centraenergioptima.com",
+      "url": "https://centraenergioptima.com/",
       "logo": "https://centraenergioptima.com/images/logo.png",
       "description": "PT. Centra Energi Optima bergerak di bidang pertambangan emas, perdagangan, dan pemurnian emas di Indonesia.",
       "address": {
