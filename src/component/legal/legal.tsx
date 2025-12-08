@@ -38,10 +38,10 @@ export default function Legal() {
 
 useEffect(() => {
   axios
-    .get(`${BASE_URL}/legals`, { withCredentials: true })
+    .get(`${BASE_URL}/legals`)
     .then((res) => {
       setData(res.data);
-      setSelectedDoc(data[0]);
+      setSelectedDoc(res.data[0]);
     })
     .catch((error) => {
       console.error(error);
