@@ -1,38 +1,41 @@
-# ========= STAGE 1: Build =========
+# ============================
+# 1. BUILD STAGE
+# ============================
 FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy dependencies only
-COPY package*.json ./
-RUN npm install
-
-# Copy source
-COPY . .
-
-# Skip lint
+# Disable ESLint & telemetry
 ENV NEXT_DISABLE_ESLINT_PLUGIN=1
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Build production
-RUN npm run build --no-lint
+# Install dependencies
+COPY package.json package-lock.json* ./
+RUN npm install
 
+# Copy seluruh project
+COPY . .
 
-# ========= STAGE 2: Runner =========
+# Build mode standalone (tidak butuh node_modules)
+RUN npm run build
+
+# ============================
+# 2. RUNNER STAGE
+# ============================
 FROM node:18-alpine AS runner
 
 WORKDIR /app
+
 ENV NODE_ENV=production
+ENV NEXT_DISABLE_ESLINT_PLUGIN=1
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 
-# Copy only production assets
-COPY --from=builder /app/.next ./.next
+# Copy standalone output dari builder
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./public/_next/static
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/package*.json ./
-
-# Only install production dependencies
-RUN npm install --production
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
