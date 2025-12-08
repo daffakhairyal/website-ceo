@@ -18,9 +18,7 @@ export default function Business1(){
   const [data, setData] = useState<Business[]>([]);
   useEffect(()=>{
     try {
-      axios.get('https://centraenergioptima.com/api/businesses', {
-  withCredentials: true
-})
+      axios.get('https://centraenergioptima.com/api/businesses')
       .then(response => {
         console.log(response.data)
         setData(response.data);
