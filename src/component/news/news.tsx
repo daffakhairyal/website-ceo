@@ -39,7 +39,7 @@ export default function NewsComponent() {
   useEffect(()=>{
     const fetchNews = async ()=>{
       try {
-        const response = await axios.get("http://localhost:8000/api/posts")
+        const response = await axios.get("https://centraenergioptima.com/api/posts")
         setNewsData(response.data);
         console.log(response.data)
       } catch (err) {
@@ -72,7 +72,7 @@ export default function NewsComponent() {
             {/* Gambar */}
             <div className="relative h-48 w-full">
               <img
-                src={`http://localhost:8000/storage/${news.img}`}
+                src={`https://centraenergioptima.com/storage/${news.img}`}
                 alt={news.title}
                 className="w-full h-full object-cover"
               />
