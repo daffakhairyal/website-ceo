@@ -1,22 +1,32 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { updates } from "../data";
+import React, { useEffect, useState } from "react";
+// import { updates } from "../data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import axios from "axios";
+
+interface News {
+  id: number;
+  title: string;
+  img: string;
+  category: string;
+  date: string;
+}
 
 export default function NewsComponent() {
   const router = useRouter();
-  const handleReadMore = (id: number) => {
-    router.push(`/news/${id}`);
-  };
+  const [newsData, setNewsData] = useState<News[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
 
   // --- Pagination Logic ---
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(updates.length / itemsPerPage);
+  const totalPages = Math.ceil(newsData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = updates.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = newsData.slice(startIndex, startIndex + itemsPerPage);
 
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -24,6 +34,28 @@ export default function NewsComponent() {
 
   const handleNext = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  useEffect(()=>{
+    const fetchNews = async ()=>{
+      try {
+        const response = await axios.get("http://localhost:8000/api/posts")
+        setNewsData(response.data);
+        console.log(response.data)
+      } catch (err) {
+        setError("Gagal memuat data");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchNews();
+
+  }, [])
+
+    const handleReadMore = (id: number) => {
+    router.push(`/news/${id}`);
   };
 
   return (
@@ -40,7 +72,7 @@ export default function NewsComponent() {
             {/* Gambar */}
             <div className="relative h-48 w-full">
               <img
-                src={news.img}
+                src={`http://localhost:8000/storage/${news.img}`}
                 alt={news.title}
                 className="w-full h-full object-cover"
               />
