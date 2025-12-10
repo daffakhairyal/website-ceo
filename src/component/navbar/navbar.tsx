@@ -60,8 +60,8 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 
   const profileSubmenu = [
     { name: "Company Profile", href: "/profile" },
-    // { name: "Directors Profile", href: "/direksi" },
-    // { name: "Commisioners Profile", href: "/komisaris" },
+    { name: "Directors Profile", href: "/direksi" },
+    { name: "Commisioners Profile", href: "/komisaris" },
     {name : "Legal", href:"/legal"}
   ]
 
