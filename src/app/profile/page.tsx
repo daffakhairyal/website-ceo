@@ -2,6 +2,7 @@ import Navbar from "@/component/navbar/navbar"
 import { Suspense, lazy } from "react"
 import Footer from "@/component/footer/footer"
 import Head from "next/head"
+import Loading from "@/component/loading/loading"
 
 
 const Profile1 = lazy(() => import("@/component/profile1/profile1"))
@@ -19,11 +20,11 @@ export default function Profile() {
     <main>
       <Navbar />
 {/*Section 1*/}
-        <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading/>}>
       <Profile1 />
     </Suspense>
     {/*Section3*/}
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading/>}>
       <Section3 />
     </Suspense>
     <Footer/>

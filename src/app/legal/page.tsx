@@ -2,6 +2,7 @@ import Navbar from "@/component/navbar/navbar"
 import { Suspense, lazy } from "react"
 import Footer from "@/component/footer/footer"
 import Head from "next/head"
+import Loading from "@/component/loading/loading"
 
 
 const Legal = lazy(() => import("@/component/legal/legal"))
@@ -18,7 +19,7 @@ export default function GalleryPage() {
     <main>
       <Navbar />
 {/*Section 2*/}
-    <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading/>}>
       <Legal />
     </Suspense>
     <Footer/>

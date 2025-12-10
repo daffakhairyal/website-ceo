@@ -5,6 +5,7 @@ import Head from "next/head";
 import Navbar from "@/component/navbar/navbar";
 import { Suspense, lazy } from "react";
 import Footer from "@/component/footer/footer";
+import Loading from "@/component/loading/loading";
 
 const NewsId = lazy(() => import("@/component/newsid/newsid"));
 
@@ -26,7 +27,7 @@ const id = params.id;
       </Head>
       <main>
         <Navbar />
-        <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading/>}>
           <NewsId />
         </Suspense>
         <Footer />

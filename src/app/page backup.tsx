@@ -1,6 +1,7 @@
 import Navbar from "@/component/navbar/navbar"
 import { Suspense, lazy } from "react"
 import Footer from "@/component/footer/footer"
+import Loading from "@/component/loading/loading"
 
 
 const Section22 = lazy(() => import("@/component/section2/section2"))
@@ -13,18 +14,18 @@ export default function HeroSection() {
     <main>
       <Navbar />
 {/*Section 1*/}
-        <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading/>}>
       <Section1 />
     </Suspense>
 {/*Section 2*/}
-    <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading/>}>
       <Section22 />
     </Suspense>
     {/*Section 2*/}
-    <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading/>}>
       <Section3 />
     </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading/>}>
       <GalleryHome />
     </Suspense>
     <Footer/>
