@@ -2,6 +2,7 @@ import Navbar from "@/component/navbar/navbar"
 import { Suspense, lazy } from "react"
 import Footer from "@/component/footer/footer"
 import Head from "next/head"
+import Loading from "@/component/loading/loading"
 
 
 const Direksi = lazy(() => import("@/component/direksi/direksi"))
@@ -18,7 +19,7 @@ export default function DireksiPage() {
     <main>
       <Navbar />
 {/*Section 2*/}
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading/>}>
       <Direksi />
     </Suspense>
     <Footer/>

@@ -55,7 +55,7 @@ and liquidity solutions, strengthening its position as a trusted and comprehensi
         </div>   
 <br />
 <br />
-            <div className="flex flex-col md:flex-row space-x-4 w-100">
+            <div className="flex flex-col md:flex-row space-x-4 w-full  space-y-4 md:space-y-0">
           {data.length > 0 ? (
             data.map((item, index) => (
               <FlipCard
