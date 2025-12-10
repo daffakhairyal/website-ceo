@@ -16,6 +16,8 @@ export default function Navbar() {
   const [searchClicked, setSearchClicked] = useState(false)
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
+  const [profileOpen, setProfileOpen] = useState(false)
+
   
   const isHome = pathname === "/"
   const navbarClass = isHome && !scrolled
@@ -49,7 +51,7 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Profile", href: "/profile" },
+    { name: "Profile", href: "#" },
     { name: "Business Line", href: "/business"},
     { name: "Gallery", href: "/gallery" },
     { name: "News", href: "/news" },
@@ -58,8 +60,8 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 
   const profileSubmenu = [
     { name: "Company Profile", href: "/profile" },
-    { name: "Directors Profile", href: "/direksi" },
-    { name: "Commisioners Profile", href: "/komisaris" },
+    // { name: "Directors Profile", href: "/direksi" },
+    // { name: "Commisioners Profile", href: "/komisaris" },
     {name : "Legal", href:"/legal"}
   ]
 
@@ -158,9 +160,16 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
             {/* Logo */}
             <a
               href="/"
-              className="text-2xl font-bold text-blue-600 tracking-tight hover:text-blue-700 transition"
+              className={`text-2xl px-4 font-bold text-blue-500 tracking-tight hover:text-blue-700 transition  
+                ${!scrolled && isHome ? "text-blue-500 hover:text-blue-600" : "hover:text-blue-700 before:text-blue-700"}`}
             >
-              CEO<span className="text-gray-700">.</span>
+                <Image
+    src="/images/logo.png"
+    alt="logo"
+    width={50} // atur sesuai kebutuhan
+    height={50}
+    className="inline-block"
+  />
             </a>
 
             {/* Hamburger Button */}
@@ -212,33 +221,70 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 
 
         {/* ===== Mobile Menu (Dropdown) ===== */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden flex flex-col space-y-1 pb-4"
+{/* ===== Mobile Menu (Dropdown) ===== */}
+<AnimatePresence>
+  {mobileOpen && (
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      transition={{ duration: 0.3 }}
+      className="md:hidden flex flex-col space-y-1 pb-4"
+    >
+      {navLinks.map((link) => {
+        const isActive = pathname === link.href
+        const isProfile = link.name === "Profile"
+
+        return (
+          <div key={link.name}>
+            {/* === Main Link === */}
+            <button
+              onClick={() =>
+                isProfile
+                  ? setProfileOpen((prev) => !prev) // buka/tutup submenu
+                  : setMobileOpen(false)
+              }
+              className={`w-full text-left py-3 px-4 rounded-md transition-all duration-200
+                ${isActive ? "bg-blue-100 text-blue-700" : "hover:bg-gray-100"}
+                ${!scrolled && isHome  ? "text-white" : "text-gray-700 hover:bg-gray-100"}
+
+              `}
             >
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)} // auto close when clicked
-                    className={`block w-full text-left py-3 px-4 rounded-md transition-all duration-200
-                      ${isActive ? "bg-blue-100 text-blue-700" : "text-white hover:bg-gray-100"}
-                    `}
+              {link.name}
+            </button>
+
+            {/* === Submenu Profile === */}
+            {isProfile && (
+              <AnimatePresence>
+                {profileOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="ml-6 mt-1 flex flex-col space-y-1"
                   >
-                    {link.name}
-                  </a>
-                )
-              })}
-            </motion.div>
-          )}
-        </AnimatePresence>
+                    {profileSubmenu.map((sub) => (
+                      <a
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`py-2 px-3 rounded-md text-sm ${!scrolled && isHome  ? "text-white" : "text-gray-700 hover:bg-gray-100"}`}
+                      >
+                        {sub.name}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            )}
+          </div>
+        )
+      })}
+    </motion.div>
+  )}
+</AnimatePresence>
+
       </div>
     </motion.header>
   )

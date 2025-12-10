@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 export default function SliderImages() {
   const images = [
-    "https://picsum.photos/800/600?random=1",
-    "https://picsum.photos/800/600?random=2",
-    "https://picsum.photos/800/600?random=3",
+    "/images/mine.jpg",
+    "/images/trading.jpg",
+    "/images/minting.jpg",
   ];
 
   const [index, setIndex] = useState(0);

@@ -27,9 +27,9 @@ export default function HeroSection() {
       <Section1 />
     </Suspense>
 {/*Section Harga Emas*/}
-<Suspense fallback={<Loading/>}>
+{/* <Suspense fallback={<Loading/>}>
 <GoldPrice/>
-</Suspense>
+</Suspense> */}
 {/*Section 2*/}
     <Suspense fallback={<Loading/>}>
       <Section22 />
