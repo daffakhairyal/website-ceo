@@ -44,14 +44,14 @@ export default function Business1(){
         <br />
         <br />
        <div className=" text-justify">
-PT Centra Energy Optima is a company engaged in the gold industry with integrated operations 
-covering mining, minting, refining, trading, and bullion banking. In its mining activities, the 
-company focuses on extracting gold resources responsibly to ensure sustainable production. Through 
-its minting and refining operations, PT Centra Energy Optima processes and purifies gold to international 
-standards, producing high-quality bullion and coin products. In the trading division, the company actively 
-participates in the domestic and international gold markets, ensuring transparency and integrity in every transaction. 
-Furthermore, through its bullion banking services, PT Centra Energy Optima provides gold storage, financing, 
-and liquidity solutions, strengthening its position as a trusted and comprehensive player in the gold industry.
+PT Centra Energy Optima adalah perusahaan yang bergerak di industri emas dengan operasi terintegrasi yang mencakup kegiatan pertambangan, 
+pencetakan (minting), pemurnian (refining), perdagangan, dan bullion banking. Dalam kegiatan pertambangannya, perusahaan berfokus 
+pada ekstraksi sumber daya emas secara bertanggung jawab untuk memastikan keberlanjutan produksi. Melalui operasi pencetakan dan 
+pemurnian, PT Centra Energy Optima mengolah dan memurnikan emas sesuai standar internasional, menghasilkan produk emas batangan 
+dan koin berkualitas tinggi. Pada divisi perdagangan, perusahaan berpartisipasi aktif di pasar emas domestik dan internasional 
+dengan menjunjung tinggi transparansi dan integritas dalam setiap transaksi. Selain itu, melalui layanan bullion banking,
+ PT Centra Energy Optima menyediakan solusi penyimpanan emas, pembiayaan, dan likuiditas, sehingga memperkuat posisinya sebagai 
+ pelaku industri emas yang terpercaya dan komprehensif.
         </div>   
 <br />
 <br />

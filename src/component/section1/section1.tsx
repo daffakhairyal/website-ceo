@@ -47,7 +47,7 @@ export default function Section1() {
               <section className="relative w-full h-screen flex items-center overflow-hidden">
         {/* Background */}
         <Image
-          src="/images/hero.jpg"
+          src="/images/papuahome4.jpeg"
           alt="Hero Background"
           fill
           priority

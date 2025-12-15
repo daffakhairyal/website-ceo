@@ -31,7 +31,7 @@ export default function FlipCard({ frontImage, frontTitle, backText }: FlipCardP
   className="object-cover w-full h-full"
   loading="lazy"
 />
-          <h3 className="absolute text-3xl font-bold text-white text-center">{frontTitle}</h3>
+          <h3 className="absolute text-2xl font-bold text-white text-center px-1">{frontTitle}</h3>
         </div>
 
         {/* Back (deskripsi saja) */}

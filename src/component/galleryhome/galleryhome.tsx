@@ -6,6 +6,8 @@ import "./gallery.css"
 
 export default function GalleryHome() {
   const images = [
+    "/images/0.jpeg",
+    "/images/7.jpeg",
     "/images/1.jpeg",
     "/images/2.jpeg",
     "/images/3.jpeg",

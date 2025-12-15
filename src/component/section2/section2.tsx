@@ -7,12 +7,30 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { ArrowRight } from "lucide-react"
 import Navbar from "@/component/navbar/navbar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import axios from "axios";
 
+type Business = {
+  img: string;
+  title: string;
+  description: string;
+};
 
 export default function Section2() {
      const [titleClicked, setTitleClicked] = useState(true);
   const [productClicked, setProductClicked] = useState(false);
+    const [data, setData] = useState<Business[]>([]);
+  useEffect(()=>{
+    try {
+      axios.get('https://centraenergioptima.com/api/businesses')
+      .then(response => {
+        console.log(response.data)
+        setData(response.data);
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  },[]);
 
    const handleTitleClick = () => {
     if (!titleClicked) {
@@ -120,7 +138,7 @@ export default function Section2() {
   >
     <div className="relative w-64 h-64 md:w-100 md:h-100 rounded-full">
       <Image
-        src="/images/hero.jpg"
+        src="/images/gold1.jpg"
         alt="Hero Background"
         fill
         priority
@@ -265,36 +283,22 @@ PT Centra Energy Optima berupaya menjadi pelaku utama dalam industri emas nasion
 <br />
 <br />
             <div className="flex flex-col md:flex-row space-x-4 w-full  space-y-4 md:space-y-0">
-<FlipCard
-  frontImage="/images/mine.jpg"
-  frontTitle="Mining"
-  backText="Proses penambangan emas dari bumi untuk menghasilkan gold dore (emas mentah) yang kemudian diproses lebih lanjut."
-/>
-
-<FlipCard
-  frontImage="/images/hero.jpg"
-  frontTitle="Refinery"
-  backText="Fasilitas pemurnian emas yang mengolah dan memproses emas hingga mencapai standar tinggi untuk pasar domestik dan internasional."
-/>
-
-<FlipCard
-  frontImage="/images/minting.jpg"
-  frontTitle="Minting"
-  backText="Proses pemurnian dan pembentukan emas murni menjadi batangan atau koin dengan kadar kemurnian 99,99%, siap untuk dijual atau disimpan."
-/>
-
-<FlipCard
-  frontImage="/images/trading.jpg"
-  frontTitle="Trading"
-  backText="Kegiatan jual beli emas, baik dalam bentuk batangan maupun produk turunannya, dengan menjunjung tinggi transparansi dan profesionalisme."
-/>
-
-<FlipCard
-  frontImage="/images/bullion.jpg"
-  frontTitle="Bullion Bank"
-  backText="Lembaga keuangan yang memperdagangkan, menyimpan, meminjamkan, dan mengelola transaksi emas di pasar global."
-/>
-
+          {data.length > 0 ? (
+            data.map((item, index) => (
+              <FlipCard
+                key={index}
+                frontImage={
+      item.img 
+        ? `https://centraenergioptima.com/storage/${item.img}` 
+        : "/images/default.jpg"
+    }
+                frontTitle={item.title}
+                backText={item.description}
+              />
+            ))
+          ) : (
+            <div>Data Not Found</div>
+          )}
 
       </div>
 
