@@ -4,14 +4,16 @@ import Slider from "react-slick";
 import { motion } from "framer-motion";
 
 export default function Gallery() {
-  const images = [
-    "/images/1.jpeg",
-    "/images/2.jpeg",
-    "/images/3.jpeg",
-    "/images/4.jpeg",
-    "/images/5.jpeg",
-    "/images/6.jpeg",
-  ];
+const data = [
+  { src: "/images/0.jpeg", title: "Pertemuan dengan disperindag", date: "12 Des 2025" },
+  { src: "/images/7.jpeg", title: "Kunjungan Raffi Ahmad", date: "" },
+  { src: "/images/1.jpeg", title: "Emas Batangan", date: "" },
+  { src: "/images/2.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/3.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/4.jpeg", title: "Emas", date: "" },
+  { src: "/images/5.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/6.jpeg", title: "Emas Batangan", date: "" },
+];
 
   const settings = {
     dots: true,
@@ -54,7 +56,7 @@ export default function Gallery() {
         className="max-w-6xl mx-auto"
       >
         <Slider {...settings}>
-          {images.map((src, index) => (
+          {data.map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
@@ -62,17 +64,49 @@ export default function Gallery() {
               className="p-3"
             >
               <div className="overflow-hidden rounded-2xl shadow-md relative group">
-                <img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out"
-                />
-                {/* Overlay teks */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                  <p className="text-white text-lg font-semibold">
-                    Photo {index + 1}
-                  </p>
-                </div>
+      {/* Image + Link */}
+      <a
+        href={item.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <img
+          src={item.src}
+          alt={item.title}
+          className="w-full h-64 object-cover"
+        />
+      </a>
+{/* Gradient Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute inset-0
+    bg-gradient-to-t from-black/80 via-black/30 to-transparent
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-opacity duration-300
+  "
+/>
+
+{/* Text Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute bottom-0 left-0 right-0 p-4
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-all duration-300
+    md:translate-y-4 md:group-hover:translate-y-0
+  "
+>
+  <p className="text-white text-sm font-medium">
+    {item.title}
+  </p>
+  <span className="text-gray-300 text-xs">
+    {item.date}
+  </span>
+</div>
               </div>
             </motion.div>
           ))}
@@ -86,17 +120,61 @@ export default function Gallery() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto"
       >
-        {images.map((src, index) => (
+        {data.map((item, index) => (
           <motion.div
             key={index}
             whileHover={{ scale: 1.03 }}
             className="overflow-hidden rounded-2xl shadow-md group"
           >
-            <img
-              src={src}
-              alt={`Grid Image ${index + 1}`}
-              className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
-            />
+    <div
+      key={index}
+      className="w-full relative overflow-hidden rounded-md group transition-transform duration-300 hover:scale-105"
+    >
+      {/* Image + Link */}
+      <a
+        href={item.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <img
+          src={item.src}
+          alt={item.title}
+          className="w-full h-64 object-cover"
+        />
+      </a>
+{/* Gradient Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute inset-0
+    bg-gradient-to-t from-black/80 via-black/30 to-transparent
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-opacity duration-300
+  "
+/>
+
+{/* Text Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute bottom-0 left-0 right-0 p-4
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-all duration-300
+    md:translate-y-4 md:group-hover:translate-y-0
+  "
+>
+  <p className="text-white text-sm font-medium">
+    {item.title}
+  </p>
+  <span className="text-gray-300 text-xs">
+    {item.date}
+  </span>
+</div>
+
+    </div>
           </motion.div>
         ))}
       </motion.div>

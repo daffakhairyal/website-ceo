@@ -5,16 +5,17 @@ import { motion } from "framer-motion";
 import "./gallery.css"
 
 export default function GalleryHome() {
-  const images = [
-    "/images/0.jpeg",
-    "/images/7.jpeg",
-    "/images/1.jpeg",
-    "/images/2.jpeg",
-    "/images/3.jpeg",
-    "/images/4.jpeg",
-    "/images/5.jpeg",
-    "/images/6.jpeg",
-  ];
+const data = [
+  { src: "/images/0.jpeg", title: "Pertemuan dengan disperindag", date: "12 Des 2025" },
+  { src: "/images/7.jpeg", title: "Kunjungan Raffi Ahmad", date: "" },
+  { src: "/images/1.jpeg", title: "Emas Batangan", date: "" },
+  { src: "/images/2.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/3.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/4.jpeg", title: "Emas", date: "" },
+  { src: "/images/5.jpeg", title: "Emas Granula", date: "" },
+  { src: "/images/6.jpeg", title: "Emas Batangan", date: "" },
+];
+
 
   const settings = {
     dots: true,
@@ -38,71 +39,82 @@ export default function GalleryHome() {
   };
 
   return (
-    <section className="gallery-section w-full h-full pt-24 pb-24 bg-black py-16 px-6">
+    <section className="gallery-section w-full h-full pt-24 pb-24 bg-black py-16 px-3 md:px-20">
       {/* Judul Halaman */}
-      <motion.h1
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-center pt-6 mb-12 text-yellow-500"
+        className="w-full font-bold text-center pt-6 mb-6 text-yellow-500 flex flex-col md:flex-row justify-between p-2"
       >
-        Gallery
-      </motion.h1>
-
-      {/* Carousel */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto"
-      >
-        <Slider {...settings}>
-          {images.map((src, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="p-3"
-            >
-              <div className="overflow-hidden rounded-2xl shadow-md relative group">
-                <img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out"
-                />
-                {/* Overlay teks */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                  <p className="text-white text-lg font-semibold">
-                    Photo {index + 1}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </Slider>
+       <div className="w-full  text-left text-5xl">Gallery kami</div>
+       <div className="w-full text-right py-3 hidden md:block">
+        <a href="/gallery" className="px-3 py-4 bg-black border-2 border-yellow-600 duration-300 hover:bg-yellow-600 text-white rounded-sm">Selengkapnya</a>
+       </div>
       </motion.div>
 
-      {/* Grid tambahan di bawah slider */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto"
+      {/* Gallery Sections */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-2"
+>
+  {data.map((item, index) => (
+    <div
+      key={index}
+      className="w-full relative overflow-hidden rounded-md group transition-transform duration-300 hover:scale-105"
+    >
+      {/* Image + Link */}
+      <a
+        href={item.src}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
       >
-        {images.map((src, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.03 }}
-            className="overflow-hidden rounded-2xl shadow-md group"
-          >
-            <img
-              src={src}
-              alt={`Grid Image ${index + 1}`}
-              className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+        <img
+          src={item.src}
+          alt={item.title}
+          className="w-full h-64 object-cover"
+        />
+      </a>
+{/* Gradient Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute inset-0
+    bg-gradient-to-t from-black/80 via-black/30 to-transparent
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-opacity duration-300
+  "
+/>
+
+{/* Text Overlay */}
+<div
+  className="
+    pointer-events-none
+    absolute bottom-0 left-0 right-0 p-4
+    opacity-100 md:opacity-0
+    md:group-hover:opacity-100
+    transition-all duration-300
+    md:translate-y-4 md:group-hover:translate-y-0
+  "
+>
+  <p className="text-white text-sm font-medium">
+    {item.title}
+  </p>
+  <span className="text-gray-300 text-xs">
+    {item.date}
+  </span>
+</div>
+
+    </div>
+  ))}
+</motion.div>
+
+
+
     </section>
   );
 }
