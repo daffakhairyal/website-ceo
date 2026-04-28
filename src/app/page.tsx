@@ -10,6 +10,8 @@ const Section1 = lazy(() => import("@/component/section1/section1"))
 const Section3 = lazy(() => import("@/component/section3/section3"))
 const GalleryHome = lazy(() => import("@/component/galleryhome/galleryhome"))
 const GoldPrice = lazy(()=>import("@/component/gold-price/gold-price"))
+const Construction = lazy(()=>import("@/component/construction/construction"))
+
 export default function HeroSection() {
 
   return (
@@ -21,27 +23,31 @@ export default function HeroSection() {
         />
       </Head>
     <main>
-      <Navbar />
+      {/* <Navbar /> */}
 {/*Section 1*/}
-        <Suspense fallback={<Loading/>}>
+        {/* <Suspense fallback={<Loading/>}>
       <Section1 />
-    </Suspense>
+    </Suspense> */}
 {/*Section Harga Emas*/}
 {/* <Suspense fallback={<Loading/>}>
 <GoldPrice/>
 </Suspense> */}
 {/*Section 2*/}
-    <Suspense fallback={<Loading/>}>
+    {/* <Suspense fallback={<Loading/>}>
       <Section22 />
-    </Suspense>
+    </Suspense> */}
     {/*Section 2*/}
     <Suspense fallback={<Loading/>}>
+    <Construction/>
+    </Suspense>
+    {/* <Suspense fallback={<Loading/>}>
       <Section3 />
-    </Suspense>
-       <Suspense fallback={<Loading/>}>
+    </Suspense> */}
+       {/* <Suspense fallback={<Loading/>}>
       <GalleryHome />
-    </Suspense>
-    <Footer/>
+    </Suspense> */}
+
+    {/* <Footer/> */}
     </main>
     </>
   )
