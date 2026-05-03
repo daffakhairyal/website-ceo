@@ -23,31 +23,29 @@ export default function HeroSection() {
         />
       </Head>
     <main>
-      {/* <Navbar /> */}
-{/*Section 1*/}
-        {/* <Suspense fallback={<Loading/>}>
+      <Navbar />
+{/* Section 1*/}
+        <Suspense fallback={<Loading/>}>
       <Section1 />
-    </Suspense> */}
+    </Suspense>
 {/*Section Harga Emas*/}
 {/* <Suspense fallback={<Loading/>}>
 <GoldPrice/>
 </Suspense> */}
 {/*Section 2*/}
-    {/* <Suspense fallback={<Loading/>}>
-      <Section22 />
-    </Suspense> */}
-    {/*Section 2*/}
     <Suspense fallback={<Loading/>}>
-    <Construction/>
+      <Section22 />
     </Suspense>
-    {/* <Suspense fallback={<Loading/>}>
-      <Section3 />
-    </Suspense> */}
-       {/* <Suspense fallback={<Loading/>}>
-      <GalleryHome />
-    </Suspense> */}
+    {/*Section 2*/}
 
-    {/* <Footer/> */}
+    <Suspense fallback={<Loading/>}>
+      <Section3 />
+    </Suspense>
+       <Suspense fallback={<Loading/>}>
+      <GalleryHome />
+    </Suspense>
+
+    <Footer/>
     </main>
     </>
   )
